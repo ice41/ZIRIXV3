@@ -7,7 +7,7 @@ version '1.0.0'
 
 client_scripts {
     '@vrp/lib/utils.lua',
-    'hansolo/*'
+    'hansolo.lua'
 }
 
 server_scripts {
@@ -16,10 +16,22 @@ server_scripts {
 }
 
 files {
-    'nui/*',
-    'nui/*',
-    'nui/*',
-    'nui/**/*'
+    'nui/darkside.html',
+    'nui/lightsaber.js',
+    'nui/theforce.css',
+    'nui/images/background.png',
+    'nui/images/do-bandoleros.jpg',
+    'nui/images/gg-magentacash.png',
+    'nui/images/mg-drown.jpg',
+    'nui/images/rihanna-diamonds.jpg',
+    'nui/images/tc-highestintheroom.jpg',
+    'nui/images/vng-tudonosigilo.png',
+    'nui/songs/do-bandoleros.mp3',
+    'nui/songs/gg-magentacash.mp3',
+    'nui/songs/mg-drown.mp3',
+    'nui/songs/rihanna-diamonds.mp3',
+    'nui/songs/tc-highestintheroom.mp3',
+    'nui/songs/vng-tudonosigilo.mp3'
 }
 
 loadscreen 'nui/darkside.html'

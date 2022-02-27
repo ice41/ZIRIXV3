@@ -3,7 +3,13 @@ game 'gta5'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'hansolo/*.lua'
+	'hansolo.lua',
+	'dispatch.lua',
+	'iploader.lua',
+	'pedsprofissoes.lua',
+	'radio.lua',
+	'removehud.lua',
+	'richpresence.lua'
 }
 
 server_scripts {

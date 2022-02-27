@@ -26,5 +26,5 @@ files {
 	"html/images/4.png",
 	"html/images/5.png",
 	"html/images/6.png",
-	"html/z-arista/Arista2.0light.otf",
+	"html/z-arista/Arista2.0light.otf"
 }

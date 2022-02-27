@@ -1,19 +1,16 @@
-fx_version 'adamant'
+fx_version 'bodacious'
 game 'gta5'
-
-author 'ZIRAFLIX'
-contact 'E-mail: contato@ziraflix.com - Discord: discord.gg/kYFy8JwVfd'
 
 ui_page 'nui/index.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'hansolo/*.lua'
+	'client.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'skywalker.lua'
+	'server.lua'
 }
 
 files {
@@ -21,6 +18,7 @@ files {
 	'nui/inicio.html',
 	'nui/motos.html',
 	'nui/import.html',
+	'nui/exclusive.html',
 	'nui/possuidos.html',
 	'nui/jquery.js',
 	'nui/css.css',

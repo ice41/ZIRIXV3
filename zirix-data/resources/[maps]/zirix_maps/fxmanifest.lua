@@ -4,7 +4,7 @@ game 'gta5'
 this_is_a_map 'yes'
 
 client_scripts { 
-    'hansolo/*.lua'
+    'hansolo.lua'
 }
 
 files {

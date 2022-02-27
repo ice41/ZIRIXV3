@@ -4,11 +4,11 @@ game 'gta5'
 client_scripts {
 	'@vrp/lib/utils.lua',
 	'config/config.lua',
-	'hansolo/*.lua'
+	'hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'config/config.lua',
+	'config.lua',
 	'skywalker.lua'
 } 

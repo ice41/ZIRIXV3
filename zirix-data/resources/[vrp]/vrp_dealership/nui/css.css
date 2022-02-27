@@ -27,10 +27,9 @@ img { border:none; }
 button {
 	display: none;
 }
-
 .menu {
 	width: 100%;
-	height: 15px;
+	height: 20px;
 	position: relative;
 	padding: 20px;
 	text-align: center;
@@ -47,12 +46,12 @@ button {
 
 .menu a:hover, .menu a:focus {
 	background: #b5b4bb;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 20px 20px 0px 0px;
 }
 
 .menu a::selection {
 	color: #b5b4bb;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 20px 20px 0px 0px;	
 	background: transparent;
 }
 
@@ -66,7 +65,7 @@ button {
 
 .title {
 	color: #666;
-	width: 880px;	
+	width: 200px;	
 	float: left;
 	font-size: 20px;
 	font-weight: 700;
@@ -78,18 +77,9 @@ button {
 .model {
 	color: #333;
 	width: 880px;
-	height: 160px;
 	background: rgba(0,0,0,0.1);
 	float: left;
 	margin-bottom: 3px;
-}
-
-.imagem-carro  img {
-	width: 250px;
-	height: 150px;
-	margin-top: 5px;
-	margin-left: 5px;
-	float: left;
 }
 
 .model.active {
@@ -101,8 +91,6 @@ button {
 	padding: 15px 0;
 	width: 60px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
 	float: left;
 	font-weight: 700;
 	text-align: center;
@@ -110,10 +98,8 @@ button {
 
 .name {
 	padding: 15px 0 15px 15px;
-	width: 155px;
+	width: 255px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
 	float: left;
 	text-align: left;
 	text-transform: uppercase;
@@ -122,10 +108,8 @@ button {
 
 .name2 {
 	padding: 15px 0 15px 15px;
-	width: 215px;
+	width: 315px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
 	float: left;
 	text-align: left;
 	text-transform: uppercase;
@@ -133,23 +117,19 @@ button {
 }
 
 .valor {
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,128,128,0.1);
 	padding: 15px 0;
 	width: 120px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
 	float: right;
 	text-align: center;
 }
 
 .malas {
+	background: rgba(255,140,0,0.1);
 	padding: 15px 0;
-	width: 120px;
+	width: 60px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
 	float: right;
 	text-align: center;
 }
@@ -157,27 +137,10 @@ button {
 .estoque {
 	background: rgba(0,0,0,0.1);
 	padding: 15px 0;
-	width: 90px;
+	width: 60px;
 	height: 11px;
-	margin-top: 5px;
-	margin-left: 5px;
 	float: right;
 	text-align: center;
-}
-
-.alugar {
-	color: #000;
-	background: #f6c23e;
-	padding: 12px 10px 11px;
-	position: absolute;
-	left: -90px;
-	margin: -45px 0 0 800px;
-	font-weight: 700;
-	border-radius: 10px 10px 0px 0px;
-}
-
-.alugar:hover {
-	background: #5d8800;
 }
 
 .comprar {
@@ -191,21 +154,6 @@ button {
 }
 
 .comprar:hover {
-	background: #5d8800;
-}
-
-.addestoque {
-	color: #000;
-	background: #f6c23e;
-	padding: 12px 10px 11px;
-	position: absolute;
-	left: -790px;
-	margin: -45px 0 0 800px;
-	font-weight: 700;
-	border-radius: 10px 10px 0px 0px;
-}
-
-.addestoque:hover {
 	background: #5d8800;
 }
 
@@ -231,4 +179,63 @@ button {
 	margin-bottom: 20px;
 	line-height: 15px;
 	border: 1px solid rgba(90,0,0,0.2);
+}
+.estoquedesc {
+	padding: 15px 0;
+	width: 60px;
+	height: 11px;
+	float: right;
+	text-align: center;
+}
+.malasdesc {
+	padding: 15px 0;
+	width: 60px;
+	height: 11px;
+	float: right;
+	text-align: center;
+}
+.valordesc {
+	padding: 15px 0;
+	width: 120px;
+	height: 11px;
+	float: right;
+	text-align: center;
+}
+
+.imagem-carro  img {
+	width: 250px;
+	height: 150px;
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+}
+
+.addestoque {
+	color: #000;
+	background: #f6c23e;
+	padding: 12px 10px 11px;
+	position: absolute;
+	left: -790px;
+	margin: -45px 0 0 800px;
+	font-weight: 700;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.addestoque:hover {
+	background: #5d8800;
+}
+
+.alugar {
+	color: #000;
+	background: #f6c23e;
+	padding: 12px 10px 11px;
+	position: absolute;
+	left: -90px;
+	margin: -45px 0 0 800px;
+	font-weight: 700;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.alugar:hover {
+	background: #5d8800;
 }
