@@ -8,13 +8,13 @@ ui_page "nui/ui.html"
 
 client_scripts {
 	"@vrp/lib/utils.lua",
-	"config/config.lua",
-	"hansolo/hansolo.lua",
+	"config.lua",
+	"hansolo.lua",
 }
 
 server_scripts {
 	"@vrp/lib/utils.lua",
-	"config/config.lua",
+	"config.lua",
 	"skywalker.lua",
 }
 
@@ -24,6 +24,5 @@ files {
 	"nui/assets/css/bootstrap.min.css",
 	"nui/assets/css/style.css",
 	"nui/ui.html",
-	"nui/ui.js",
-	"nui/img/carros/*",
+	"nui/ui.js"
 }

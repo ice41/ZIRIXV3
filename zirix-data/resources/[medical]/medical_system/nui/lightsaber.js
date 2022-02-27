@@ -8,51 +8,51 @@ $(function() {
 	  
 	  if (item.head == true) {
 		$('.cabeca').css('opacity', '1');   
-		$('.cabeca').css('background-image', 'url(img/cabeca2.png)');
-		$('.situacao').css('background-image', 'url(img/situacao.png)');  
+		$('.cabeca').css('background-image', 'url(https://ice41.pt/imagens/medical/system/cabeca2.png)');
+		$('.situacao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/situacao.png)');  
 	  }
 
 	  if (item.legs == true) {
 		$('.perbra').css('opacity', '1');   
-		$('.perbra').css('background-image', 'url(img/permao2.png)');
-		$('.situacao').css('background-image', 'url(img/situacao2.png)');
+		$('.perbra').css('background-image', 'url(https://ice41.pt/imagens/medical/system/permao2.png)');
+		$('.situacao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/situacao2.png)');
 	  }
 
 	  if (item.foot == true) {
 		$('.pemao').css('opacity', '1');   
-		$('.pemao').css('background-image', 'url(img/mape2.png)');
-		$('.situacao').css('background-image', 'url(img/situacao3.png)');
+		$('.pemao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/mape2.png)');
+		$('.situacao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/situacao3.png)');
 	  }
 
 	  if (item.breast == true) {
 		$('.coluna').css('opacity', '1');   
-		$('.coluna').css('background-image', 'url(img/coluna2.png)');
-		$('.situacao').css('background-image', 'url(img/situacao.png)');
+		$('.coluna').css('background-image', 'url(https://ice41.pt/imagens/medical/system/coluna2.png)');
+		$('.situacao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/situacao.png)');
 	  }
 
 	  if (item.hea == 1) {
 		$('.cabeca').css('opacity', '0.9');   
-		$('.cabeca').css('background-image', 'url(img/cabeca.png)'); 
+		$('.cabeca').css('background-image', 'url(https://ice41.pt/imagens/medical/system/cabeca.png)'); 
 	  }
 
 	  if (item.leg == 1) {
 		$('.perbra').css('opacity', '0.9');   
-		$('.perbra').css('background-image', 'url(img/permao.png)'); 
+		$('.perbra').css('background-image', 'url(https://ice41.pt/imagens/medical/system/permao.png)'); 
 	  }
 
 	  if (item.han == 1) {
 		$('.pemao').css('opacity', '0.9');   
-		$('.pemao').css('background-image', 'url(img/mape.png)'); 
+		$('.pemao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/mape.png)'); 
 	  }
 
 	  if (item.col == 1) {
 		$('.coluna').css('opacity', '0.9');   
-		$('.coluna').css('background-image', 'url(img/coluna.png)'); 
+		$('.coluna').css('background-image', 'url(https://ice41.pt/imagens/medical/system/coluna.png)'); 
 	  }	
 
 	  if (item.sit == 1) {
 		$('.situacao').css('opacity', '0.9');   
-		$('.situacao').css('background-image', 'url(img/situacao4.png)'); 
+		$('.situacao').css('background-image', 'url(https://ice41.pt/imagens/medical/system/situacao4.png)'); 
 	  }	
 
   

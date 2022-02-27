@@ -8,20 +8,20 @@ ui_page 'nui/darkside.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'hansolo/hansolo.lua',
-	'config/config.lua'
+	'hansolo.lua',
+	'config.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
 	'skywalker.lua',
-	'config/config.lua'
+	'config.lua'
 }
 
 files {
-	'nui/*.html',
-	'nui/*.js',
-	'nui/*.css',
+	'nui/darkside.html',
+	'nui/lightsaber.js',
+	'nui/theforce.css',
     
 	'nui/img/rifles.png',
 	'nui/img/smgs.png',
