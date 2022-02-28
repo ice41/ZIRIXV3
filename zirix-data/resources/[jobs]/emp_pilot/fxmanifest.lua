@@ -9,12 +9,12 @@ ui_page 'nui/ui.html'
 client_scripts {
 	'@vrp/lib/utils.lua',
 	'config/configpilot.lua',
-	'hansolo/*.lua'	
+	'hansolo.lua'	
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'config/configpilot.lua',
+	'configpilot.lua',
 	'skywalker.lua'
 }
 

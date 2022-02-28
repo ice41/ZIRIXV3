@@ -8,77 +8,77 @@ version '1.0.4'
 -- FARM AMMO
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_ammo/config1/config1.lua',
-	'farm_ammo/hansolo/*.lua'
+	'farm_ammo/config1.lua',
+	'farm_ammo/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_ammo/config1/config1.lua',
+	'farm_ammo/config1.lua',
 	'farm_ammo/skywalker.lua'
 }
 
 -- FARM COCA
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_coca/config2/config2.lua',
-	'farm_coca/hansolo/*.lua'
+	'farm_coca/config2.lua',
+	'farm_coca/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_coca/config2/config2.lua',
+	'farm_coca/config2.lua',
 	'farm_coca/skywalker.lua'
 }
 
 -- FARM LSD
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_lsd/config3/config3.lua',
-	'farm_lsd/hansolo/*.lua'
+	'farm_lsd/config3.lua',
+	'farm_lsd/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_lsd/config3/config3.lua',
+	'farm_lsd/config3.lua',
 	'farm_lsd/skywalker.lua'
 }
 
 -- FARM META
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_meta/config4/config4.lua',
-	'farm_meta/hansolo/*.lua'
+	'farm_meta/config4.lua',
+	'farm_meta/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_meta/config4/config4.lua',
+	'farm_meta/config4.lua',
 	'farm_meta/skywalker.lua'
 }
 
 -- FARM WEAPON
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_weapon/config5/config5.lua',
-	'farm_weapon/hansolo/*.lua'
+	'farm_weapon/config5.lua',
+	'farm_weapon/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_weapon/config5/config5.lua',
+	'farm_weapon/config5.lua',
 	'farm_weapon/skywalker.lua'
 }
 
 -- FARM BODYWEAPONS
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_bodyweapon/config6/config6.lua',
-	'farm_bodyweapon/hansolo/*.lua'
+	'farm_bodyweapon/config6.lua',
+	'farm_bodyweapon/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'farm_bodyweapon/config6/config6.lua',
+	'farm_bodyweapon/config6.lua',
 	'farm_bodyweapon/skywalker.lua'
 }

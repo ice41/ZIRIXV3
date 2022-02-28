@@ -8,7 +8,7 @@ ui_page 'nui/darkside.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'hansolo/*.lua'
+	'hansolo.lua'
 }
 
 server_scripts {
@@ -17,7 +17,7 @@ server_scripts {
 }
 
 files {
-	'nui/*.html',
-	'nui/*.css',
-	'nui/*.js'
+	'nui/darkside.html',
+	'nui/lightsaber.js',
+	'nui/theforce.css'
 }

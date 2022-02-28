@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SInteriorOrderData>
+    <startFrom value="3000" />
+    <filePathHash value="0" />
+    <proxies>
+        <Item>biker_dlc_int_coca_milo</Item>
+        <Item>biker_dlc_int_lavagem</Item>
+        <Item>biker_dlc_int_ware02_milo_</Item>
+        <Item>hei_cs1_15c_long_1</Item>
+        <Item>biker_dlc_int_meta</Item>
+        <Item>hei_cs1_15c_strm_1</Item>
+    </proxies>
+</SInteriorOrderData>

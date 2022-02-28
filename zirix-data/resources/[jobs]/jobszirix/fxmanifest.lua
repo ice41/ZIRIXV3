@@ -8,13 +8,13 @@ contact 'E-mail: contato@ziraflix.com - Discord: discord.gg/kYFy8JwVfd'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_postman/config/configpostman.lua',
-	'emp_postman/hansolo/*.lua'
+	'emp_postman/configpostman.lua',
+	'emp_postman/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_postman/config/configpostman.lua',
+	'emp_postman/configpostman.lua',
 	'emp_postman/skywalker.lua'
 }
 
@@ -22,13 +22,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_postman-delivery/config/configpostmand.lua',
-	'emp_postman-delivery/hansolo/*.lua'
+	'emp_postman-delivery/configpostmand.lua',
+	'emp_postman-delivery/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_postman-delivery/config/configpostmand.lua',
+	'emp_postman-delivery/configpostmand.lua',
 	'emp_postman-delivery/skywalker.lua'
 }
 
@@ -36,13 +36,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_milkman/config/configmilkman.lua',
-	'emp_milkman/hansolo/*.lua'
+	'emp_milkman/configmilkman.lua',
+	'emp_milkman/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_milkman/config/configmilkman.lua',
+	'emp_milkman/configmilkman.lua',
 	'emp_milkman/skywalker.lua'
 }
 
@@ -50,13 +50,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_milkman-delivery/config/configmilkmand.lua',
-	'emp_milkman-delivery/hansolo/*.lua'
+	'emp_milkman-delivery/configmilkmand.lua',
+	'emp_milkman-delivery/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_milkman-delivery/config/configmilkmand.lua',
+	'emp_milkman-delivery/configmilkmand.lua',
 	'emp_milkman-delivery/skywalker.lua'
 }
 
@@ -64,13 +64,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_miner/config/configminer.lua',
-	'emp_miner/hansolo/*.lua'
+	'emp_miner/configminer.lua',
+	'emp_miner/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_miner/config/configminer.lua',
+	'emp_miner/configminer.lua',
 	'emp_miner/skywalker.lua'
 }
 
@@ -78,13 +78,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_driver/config/configdriver.lua',
-	'emp_driver/hansolo/*.lua'
+	'emp_driver/configdriver.lua',
+	'emp_driver/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_driver/config/configdriver.lua',
+	'emp_driver/configdriver.lua',
 	'emp_driver/skywalker.lua'
 }
 
@@ -92,13 +92,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_lumberjack/config/configlumberjack.lua',
-	'emp_lumberjack/hansolo/*.lua'
+	'emp_lumberjack/configlumberjack.lua',
+	'emp_lumberjack/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_lumberjack/config/configlumberjack.lua',
+	'emp_lumberjack/configlumberjack.lua',
 	'emp_lumberjack/skywalker.lua'
 }
 
@@ -106,13 +106,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_lumberjack-delivery/config/configlumberjackdelivery.lua',
-	'emp_lumberjack-delivery/hansolo/*.lua'
+	'emp_lumberjack-delivery/configlumberjackdelivery.lua',
+	'emp_lumberjack-delivery/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_lumberjack-delivery/config/configlumberjackdelivery.lua',
+	'emp_lumberjack-delivery/configlumberjackdelivery.lua',
 	'emp_lumberjack-delivery/skywalker.lua'
 }
 
@@ -120,13 +120,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_garbageman/config/configgarbageman.lua',
-	'emp_garbageman/hansolo/*.lua'
+	'emp_garbageman/configgarbageman.lua',
+	'emp_garbageman/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_garbageman/config/configgarbageman.lua',
+	'emp_garbageman/configgarbageman.lua',
 	'emp_garbageman/skywalker.lua'
 }
 
@@ -134,13 +134,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_farmer/config/configfarmer.lua',
-	'emp_farmer/hansolo/*.lua'
+	'emp_farmer/configfarmer.lua',
+	'emp_farmer/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_farmer/config/configfarmer.lua',
+	'emp_farmer/configfarmer.lua',
 	'emp_farmer/skywalker.lua'
 }
 
@@ -148,13 +148,13 @@ server_scripts {
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_farmer-delivery/config/configfarmerd.lua',
-	'emp_farmer-delivery/hansolo/*.lua'
+	'emp_farmer-delivery/configfarmerd.lua',
+	'emp_farmer-delivery/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_farmer-delivery/config/configfarmerd.lua',
+	'emp_farmer-delivery/configfarmerd.lua',
 	'emp_farmer-delivery/skywalker.lua'
 }
 
@@ -164,13 +164,13 @@ ui_page 'emp_taxista/html/ui.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_taxista/config/configtaxi.lua',
-	'emp_taxista/hansolo/*.lua'
+	'emp_taxista/configtaxi.lua',
+	'emp_taxista/hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'emp_taxista/config/configtaxi.lua',
+	'emp_taxista/configtaxi.lua',
 	'emp_taxista/skywalker.lua'
 }
 
