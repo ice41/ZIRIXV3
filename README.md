@@ -1,4 +1,4 @@
-# ZIRIX V3
+# ZIRIX V3 - Linux Version by Ice41
 **ZIRIX é uma base vRPex para FiveM, com um conjunto de scripts da comunidade e do grupo de desenvolvimento da ZIRAFLIX**.
 
 ## Versão gratuita e atualizada!
@@ -14,3 +14,8 @@ Você pode buscar suporte em nosso [Discord](https://discord.gg/kYFy8JwVfd).
 - **Comercial: contato@ziraflix.com**
 - **Discord: https://discord.gg/kYFy8JwVfd**
 - **Website: https://ziraflix.com.br**
+
+## Contato Versão Linux
+- **Comercial: geral@ice41.pt**
+- **Discord: https://discord.gg/zMTvNH8gRG**
+- **Website: https://ice41.pt**
