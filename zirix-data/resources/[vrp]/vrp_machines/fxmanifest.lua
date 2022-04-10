@@ -9,6 +9,6 @@ client_scripts {
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'config/config.lua',
+	'config.lua',
 	'skywalker.lua'
 } 

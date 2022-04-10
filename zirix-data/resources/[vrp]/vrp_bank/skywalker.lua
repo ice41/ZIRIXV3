@@ -225,8 +225,8 @@ AddEventHandler('bank:balance', function()
 	local user_id = vRP.getUserId(_source)
 	local getbankmoney = vRP.getBankMoney(user_id)
 	local multasbalance = vRP.getUData(user_id,"vRP:multas")
-
-	TriggerClientEvent("currentbalance1",_source,addComma(math.floor(getbankmoney)),multasbalance)
+	local carteira = vRP.getInventoryItemAmount(user_id,"dinheiro")
+	TriggerClientEvent("currentbalance1",_source,addComma(math.floor(getbankmoney)),multasbalance,carteira)
 	--TriggerClientEvent("currentbalance2",_source)
 end)
 

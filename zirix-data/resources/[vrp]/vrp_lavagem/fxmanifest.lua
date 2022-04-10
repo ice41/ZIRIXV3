@@ -5,7 +5,7 @@ ui_page 'nui/darkside.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'config/config.lua',
+	'config.lua',
 	'hansolo.lua'
 }
 

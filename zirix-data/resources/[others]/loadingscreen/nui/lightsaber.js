@@ -1,46 +1,47 @@
 var playlist = [
 	{
-		"song"    : "HIGHEST IN THE ROOM",
-		"album"   : "JACKBOYS",
-		"artist"  : "Travis Scott",
-		"artwork" : "images/tc-highestintheroom.jpg",
-		"mp3"     : "songs/tc-highestintheroom.mp3"
-    },
-	{
-		"song"    : "DIAMONDS",
-		"album"   : "UNAPOLOGETIC",
-		"artist"  : "Rihanna",
-		"artwork" : "images/rihanna-diamonds.jpg",
-		"mp3"     : "songs/rihanna-diamonds.mp3"
-    },
-	{
-		"song"    : "Bandoleros",
-		"album"   : "Los Bandoleros",
-		"artist"  : "Don Omar",
-		"artwork" : "images/do-bandoleros.jpg",
-		"mp3"     : "songs/do-bandoleros.mp3"
+		"song"    : "Nave Espacial",
+		"album"   : "NAVE ESPACIAL ",
+		"artist"  : "Samantha Machado",
+		"artwork" : "imagens/sm-naveespacial.png",
+		"mp3"     : "musicas/sm-naveespacial.mp3"
 	},
-	{
-		"song"    : "Magenta Ca$h",
-		"album"   : "ALEGORIA",
-		"artist"  : "Gloria Grove",
-		"artwork" : "images/gg-magentacash.png",
-		"mp3"     : "songs/gg-magentacash.mp3"
+    {
+		"song"    : "Agnus Dei",
+		"album"   : "VISAVIS",
+		"artist"  : "Cecilia Krull",
+		"artwork" : "imagens/tc-highestintheroom.jpg",
+		"mp3"     : "musicas/tc-highestintheroom.mp3"
+    },
+	/*{
+		"song"    : "Agnus Dei",
+		"album"   : "VIS A ViS",
+		"artist"  : "Cecilia Krull",
+		"artwork" : "imagens/visavis.png",
+		"mp3"     : "musicas/visavis.mp3"
 	},
 	{
 		"song"    : "Drown",
 		"album"   : "Drown",
 		"artist"  : "Martin Garrix",
-		"artwork" : "images/mg-drown.jpg",
-		"mp3"     : "songs/mg-drown.mp3"
-    },
-    {
+		"artwork" : "imagens/mg-drown.jpg",
+		"mp3"     : "musicas/mg-drown.mp3"
+    },*/
+	    {
 		"song"    : "Tudo no sigilo",
-		"album"   : "N/A",
-		"artist"  : "Vytinho NG",
-		"artwork" : "images/vng-tudonosigilo.png",
-		"mp3"     : "songs/vng-tudonosigilo.mp3"
+		"album"   : "SINGLE",
+		"artist"  : "Vytinho NG ft McBianca",
+		"artwork" : "imagens/vng-tudonosigilo.png",
+		"mp3"     : "musicas/vng-tudonosigilo.mp3"
+	},
+	{
+		"song"    : "Bandoleros",
+		"album"   : "Los Bandoleros",
+		"artist"  : "Don Omar",
+		"artwork" : "imagens/do-bandoleros.jpg",
+		"mp3"     : "musicas/do-bandoleros.mp3"
 	}
+
     
 ];
 
@@ -84,7 +85,7 @@ function load(){
 	artwork.setAttribute("style", "background: url('"+playlist[currentSong]['artwork']+"') center no-repeat;");
 	music.innerHTML = '<source src="'+playlist[currentSong]['mp3']+'" type="audio/mp3">';
 	music.load();
-	music.play();
+	music.play();	
 }
 
 function reset(){ 
@@ -98,7 +99,7 @@ function reset(){
 	bufferhead.style.width = "0px";
 	timer.innerHTML = "0:00";
 	music.innerHTML = "";
-	currentSong = 0; // set to first song, to stay on last song: currentSong = playlist.length - 1;
+	currentSong = 1; // set to first song, to stay on last song: currentSong = playlist.length - 1;
 	song.innerHTML = playlist[currentSong]['song'];
 	song.title = playlist[currentSong]['song'];
 	album.innerHTML = playlist[currentSong]['album'];
@@ -108,7 +109,7 @@ function reset(){
 	artwork.setAttribute("style", "background: url('"+playlist[currentSong]['artwork']+"') center no-repeat;");
 	music.innerHTML = '<source src="'+playlist[currentSong]['mp3']+'" type="audio/mp3">';
 	music.load();
-	music.play();
+	music.play();		  
 }
 
 function formatSecondsAsTime(secs, format) {
@@ -268,7 +269,6 @@ previous.onclick = function(){
 }
 
 volume.oninput = function(){
-	music.volume = volume.value;
 	visablevolume.style.width = (80 - 11) * volume.value + "px";
 }
 

@@ -1,22 +1,15 @@
 fx_version 'bodacious'
 game 'gta5'
 
-author 'ZIRAFLIX'
-contact 'E-mail: contato@ziraflix.com - Discord: discord.gg/kYFy8JwVfd'
-
-ui_page 'nui/darkside.html'
+ui_page 'nui/ui.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'hansolo.lua'
+	'client.lua'
 }
 
 files {
-	'nui/darkside.html',
-	'nui/lightsaber.js',
-	'nui/theforce.css',
-
-	'nui/imagens/aeroporto.png',
-	'nui/imagens/rodoviaria.png',
-	'nui/imagens/los-anjos.png'
+	'nui/ui.html',
+	'nui/ui.js',
+	'nui/ui.css'
 }

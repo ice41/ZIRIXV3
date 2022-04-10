@@ -168,6 +168,13 @@ body{
     color: #fff;
     font-size: 20px;
 }
+.txt-saldo2{
+    position: absolute;
+    top: 176px;
+    left: 44px;
+    color: #fff;
+    font-size: 20px;
+}
 
 .ma-saldo{
     position: absolute;
@@ -192,6 +199,14 @@ body{
 .balance{
     position: absolute;
     top: 66px;
+    left: 44px;
+    color: #2C2F33;
+    font-family: 'AvenirNextRoundedStdBold';
+    font-size: 40;
+}
+.carteira{
+    position: absolute;
+    top: 206px;
     left: 44px;
     color: #2C2F33;
     font-family: 'AvenirNextRoundedStdBold';

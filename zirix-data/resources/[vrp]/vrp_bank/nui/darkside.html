@@ -50,6 +50,8 @@
                 <div class="saldo">
                     <div class="txt-saldo">Saldo disponível:</div>
                     <div class="balance"></div>
+					<div class="txt-saldo2">Carteira:</div>
+						<div class="carteira"></div>
                     <div class="ma-saldo"></div>
                 </div>
                 <div class="acoes">
@@ -190,7 +192,7 @@
                     <a>Acessar conta</a>
                 </div>
                 <div class="usuario-login">
-                    Lembrar meu login <img src="https://ice41.pt/imagens/banco//botao.png">
+                    Lembrar meu login <img src="imagens/botao.png">
                 </div>
             </div>
         </div>
@@ -218,6 +220,7 @@
                     $('body').addClass("active");
                 } else if (event.data.type === "balanceHUD") {
                     $('.balance').html("$" + event.data.balance);
+					$('.carteira').html("$" + event.data.carteira);
                     $('.saldo-multas').html("Suas multas: $" + event.data.multas);
                 } else if (event.data.type === "closeAll") {
                     $('#waiting, #general, #transferUI, #sacarUI, #depositarUI, #pagarUI').hide();

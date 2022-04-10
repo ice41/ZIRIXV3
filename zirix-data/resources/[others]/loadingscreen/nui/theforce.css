@@ -7,12 +7,13 @@ body {
     height: 1080px;
     font-family: Helvetica, Arial;
     background: #161922;
+    background-image: url("imagens/background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
 	background-position: center;
 	overflow: hidden;
 	padding: 0;
-	background-image: url("images/background.png");
+
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;

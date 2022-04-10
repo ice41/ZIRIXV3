@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<link href="ui.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="actionmenu">
+		<div id="mainmenu">
+			<button class="menuoption" id="costura" data-sub="costura-comprar">Produzir</button>
+			<button class="menuoption" id="ilegal" data-sub="ilegal-comprar">Produzir ilegal</button>
+			<button class="menuoption" data-action="fechar">Fechar</button>
+		</div>
+
+		<div data-parent="mainmenu" id="costura-comprar" style="display: none;">
+			<button class="menuoption" data-action="mochila">
+				<l>Mochila</l>
+				<r>
+					20x Tecido<br>
+					8x Linha de costura<br>
+				</r>
+			</button>			
+			<button class="menuoption" data-action="capuz">
+				<l>Capuz</l>
+				<r>
+					10x Tecido<br>
+					10x Linha de costura<br>
+				</r>
+			</button>
+		</div>
+		<div data-parent="mainmenu" id="ilegal-comprar" style="display: none;">
+			<button class="menuoption" data-action="algema">
+				<l>Algemas</l>
+				<r>
+					1x Corrente<br>
+					8x Fragmesntos de metal<br>
+				</r>
+			</button>			
+			<button class="menuoption" data-action="lockpick">
+				<l>Lockpick</l>
+				<r>
+					10x Fragmestos de Metal<br>
+					1x Placa de Metal<br>
+				</r>
+			</button>
+			<!--<button class="menuoption" data-action="masterlockpick">
+				<l>Master Lockpick</l>
+				<r>
+					20x Fragmestos de Metal<br>
+					2x Placa de Metal<br>
+				</r>
+			</button>-->
+			<button class="menuoption" data-action="placa">
+				<l>Placa de matrícula</l>
+				<r>
+					15x Fragmestos de Metal<br>
+					1x Placa de Metal<br>
+				</r>
+			</button>
+		</div>
+	</div>
+	<script src="ui.js" type="text/javascript"></script>
+</body>
+
+</html>

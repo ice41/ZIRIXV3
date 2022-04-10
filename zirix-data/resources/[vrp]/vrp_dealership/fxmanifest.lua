@@ -1,16 +1,19 @@
-fx_version 'bodacious'
+fx_version 'adamant'
 game 'gta5'
+
+author 'ice41'
+contact 'E-mail: ice41pt@gmail.com'
 
 ui_page 'nui/index.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'client.lua'
+	'hansolo.lua'
 }
 
 server_scripts {
 	'@vrp/lib/utils.lua',
-	'server.lua'
+	'skywalker.lua'
 }
 
 files {
@@ -22,5 +25,7 @@ files {
 	'nui/possuidos.html',
 	'nui/jquery.js',
 	'nui/css.css',
-	'nui/images/background.png'
+	'nui/images/background.png',
+	'nui/images/logo.png',
+	'nui/click.ogg'
 }

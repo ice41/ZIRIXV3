@@ -8,14 +8,46 @@ server_scripts {
 	'lib/utils.lua',
 	'base.lua',
 	'queue.lua',
-	'zirix/*',
-	'modules/*'
+	'zirix/base.lua',
+	'zirix/binds.lua',
+	'zirix/blips.lua',
+	'zirix/groups.lua',
+	'zirix/items.lua',
+	'zirix/others.lua',
+	'zirix/vehicles.lua',
+	'modules/aptitude.lua',
+	'modules/basic_items.lua',
+	'modules/db.lua',
+	'modules/group.lua',
+	'modules/gui.lua',
+	'modules/identity.lua',
+	'modules/inventory.lua',
+	'modules/map.lua',
+	'modules/money.lua',
+	'modules/pass.lua',
+	'modules/player_state.lua',
+	'modules/survival.lua'
 }
 
 client_scripts {
 	'lib/utils.lua',
-	'zirix/*',
-	'client/*',
+	'zirix/base.lua',
+	'zirix/binds.lua',
+	'zirix/blips.lua',
+	'zirix/groups.lua',
+	'zirix/items.lua',
+	'zirix/others.lua',
+	'zirix/vehicles.lua',
+	'client/base.lua',
+	'client/basic_garage.lua',
+	'client/gui.lua',
+	'client/identity.lua',
+	'client/iplloader.lua',
+	'client/keymappings.lua',
+	'client/map.lua',
+	'client/player_state.lua',
+	'client/police.lua',
+	'client/survival.lua'
 }
 
 files {
@@ -23,7 +55,15 @@ files {
 	'lib/Proxy.lua',
 	'lib/Luaseq.lua',
 	'lib/Tools.lua',
-	'gui/*',
+	'gui/bebas.ttf',
+	'gui/design.css',
+	'gui/Div.js',
+	'gui/dynamic_classes.js',
+	'gui/index.html',
+	'gui/main.js',
+	'gui/Menu.js',
+	'gui/RequestManager.js',
+	'gui/WPrompt.js'
 }
 
 server_export 'AddPriority'

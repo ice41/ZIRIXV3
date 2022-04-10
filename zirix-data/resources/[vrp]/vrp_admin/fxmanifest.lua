@@ -13,7 +13,7 @@ client_scripts {
 server_scripts {
 	'@vrp/lib/utils.lua',
 	'@oxmysql/lib/MySQL.lua',
-	'config/config.lua',
+	'config.lua',
 	'skywalker.lua'
 }
 

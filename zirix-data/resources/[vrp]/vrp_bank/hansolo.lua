@@ -77,12 +77,13 @@ if bankMenu then
 end
 
 RegisterNetEvent('currentbalance1')
-AddEventHandler('currentbalance1', function(balance,multas)
+AddEventHandler('currentbalance1', function(balance,multas,carteira)
 	
 	SendNUIMessage({
 		type = "balanceHUD",
 		balance = balance,
-		multas = multas
+		multas = multas,
+		carteira = carteira
 	})
 end)
 

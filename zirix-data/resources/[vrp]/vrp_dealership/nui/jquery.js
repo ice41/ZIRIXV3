@@ -14,7 +14,10 @@ $(document).ready(function(){
 				actionButton.fadeOut(1000);
 				actionContainer.fadeOut(1000);
 			break;
-
+			case 'updateStart':
+				updateStart();
+			break;
+			
 			case 'updateCarros':
 				updateCarros();
 			break;
@@ -26,18 +29,16 @@ $(document).ready(function(){
 			case 'updateImport':
 				updateImport();
 			break;
-			
 			case 'updateExclusive':
-				updateImport();
+				updateExclusive();
 			break;
-			
 			case 'updatePossuidos':
 				updatePossuidos();
 			break;
 		}
 	});
 
-	$("#inicio").load("./inicio.html");
+	$("#start").load("./start.html");
 
 	document.onkeyup = function(data){
 		if (data.which == 27){
@@ -80,11 +81,12 @@ const updateCarros = () => {
 			<div class="alugar">TEST DRIVE</div>
 			<div class="addestoque">PEDIR ESTOQUE</div>
 			<div class="obs">Para efetuar uma <b>compra</b> selecione um modelo abaixo e clique em <b>comprar</b>, o sistema vai efetuar as checagens necessárias e se você possuir o valor do veículo ele compra automaticamente.</div>
-			<div class="title">CARROS</div>
+			<div class="title">CARROS</div><div class="valordesc">Preço</div><div class="malasdesc">Mala</div>
+			<div class="estoquedesc">Stock</div>
 			${nameList.map((item) => (`
 				<div class="model" data-name-key="${item.k}">
-					<div class="imagem-carro"><img src="https://cidadeperdida.ovh/imagens/vrp_carros/${item.nome}.png"/></div>
-				
+					<div class="imagem-carro"><img src="https://ice41.pt/imagens/vrp_vehicles/${item.nome}.png"/></div>
+					<div class="id">${i = i + 1}</div>
 					<div class="name">${item.nome}</div>
 					<div class="valor">$${formatarNumero(item.price)}</div>
 					<div class="malas">Porta malas: ${item.chest}</div>
@@ -94,7 +96,18 @@ const updateCarros = () => {
 		`);
 	});
 }
+const updateStart = () => {
+	$.post("http://vrp_dealership/start",JSON.stringify({}),(data) => {
+		let i = 0;
+		const nameList = data.veiculos.sort((a,b) => (a.nome > b.nome) ? 1: -1);
+		$('#inicio').html(`
+			<div class="obs">Bem vindo á loja.</div>
+			<div calss="name">Hi</div>
 
+
+		`);
+	});
+}
 const updateMotos = () => {
 	$.post("http://vrp_dealership/requestMotos",JSON.stringify({}),(data) => {
 		let i = 0;
@@ -104,10 +117,12 @@ const updateMotos = () => {
 			<div class="alugar">ALUGAR</div>
 			<div class="addestoque">PEDIR ESTOQUE</div>
 			<div class="obs">Para efetuar uma <b>compra</b> selecione um modelo abaixo e clique em <b>comprar</b>, o sistema vai efetuar as checagens necessárias e se você possuir o valor do veículo ele compra automaticamente.</div>
-			<div class="title">MOTOS</div>
+			<div class="title">MOTOS</div><div class="valordesc">Preço</div><div class="malasdesc">Mala</div>
+			<div class="estoquedesc">Stock</div>
 			${nameList.map((item) => (`
 				<div class="model" data-name-key="${item.k}">
-					<div class="imagem-carro"><img src="https://cidadeperdida.ovh/imagens/vrp_carros/${item.nome}.png"/></div>
+					<div class="imagem-carro"><img src="https://ice41.pt/imagens/vrp_vehicles/${item.nome}.png"/></div>
+					<div class="id">${i = i + 1}</div>
 					<div class="name">${item.nome}</div>
 					<div class="valor">$${formatarNumero(item.price)}</div>
 					<div class="malas">Porta malas: ${item.chest}</div>
@@ -124,14 +139,17 @@ const updateImport = () => {
 		const nameList = data.veiculos.sort((a,b) => (a.nome > b.nome) ? 1: -1);
 		$('#inicio').html(`
 			<div class="comprar">COMPRAR</div>
+			<div class="alugar">TEST DRIVE</div>
+			<div class="addestoque">PEDIR ESTOQUE</div>
 			<div class="obs">Para efetuar uma <b>compra</b> selecione um modelo abaixo e clique em <b>comprar</b>, o sistema vai efetuar as checagens necessárias e se você possuir o valor do veículo ele compra automaticamente.</div>
-			<div class="title">IMPORTADOS</div>
+			<div class="title">IMPORTADOS</div><div class="valordesc">Preço</div><div class="malasdesc">Mala</div>
+			<div class="estoquedesc">Stock</div>
 			${nameList.map((item) => (`
 				<div class="model" data-name-key="${item.k}">
-					<div class="imagem-carro"><img src="https://cidadeperdida.ovh/imagens/vrp_carros/${item.k}.png"/></div>
-					
+					<div class="imagem-carro"><img src="https://ice41.pt/imagens/vrp_vehicles/${item.k}.png"/></div>
+					<div class="id">${i = i + 1}</div>
 					<div class="name">${item.nome}</div>
-					<div class="valor">$${formatarNumero(item.price)}</div>
+					<div class="valor">coins${formatarNumero(item.price)}</div>
 					<div class="malas">Porta malas: ${item.chest}</div>
 					<div class="estoque">Disponível: ${item.stock}</div>
 				</div>
@@ -139,7 +157,6 @@ const updateImport = () => {
 		`);
 	});
 }
-
 const updateExclusive = () => {
 	$.post("http://vrp_dealership/requestExclusive",JSON.stringify({}),(data) => {
 		let i = 0;
@@ -147,12 +164,13 @@ const updateExclusive = () => {
 		$('#inicio').html(`
 			<div class="comprar">COMPRAR</div>
 			<div class="alugar">TEST DRIVE</div>
+			<div class="addestoque">PEDIR ESTOQUE</div>
 			<div class="obs">Para efetuar uma <b>compra</b> selecione um modelo abaixo e clique em <b>comprar</b>, o sistema vai efetuar as checagens necessárias e se possuir o valor do veículo ele compra automaticamente.</div>
 			<div class="title">Exclusivos</div><div class="valordesc">Preço</div><div class="malasdesc">Mala</div>
 			<div class="estoquedesc">Stock</div>
 			${nameList.map((item) => (`
 				<div class="model" data-name-key="${item.k}">
-					<div class="imagem-carro"><img src='https://cidadeperdida.ovh/imagens/vrp_carros/${item.nome}.png'></div>	
+					<div class="imagem-carro"><img src='https://ice41.pt/imagens/vrp_vehicles/${item.nome}.png'></div>	
 				
 					<div class="name">${item.nome}</div>
 					<div class="valor">€ ${formatarNumero(item.price)}</div>
@@ -163,7 +181,6 @@ const updateExclusive = () => {
 		`);
 	});
 }
-
 const updatePossuidos = () => {
 	$.post("http://vrp_dealership/requestPossuidos",JSON.stringify({}),(data) => {
 		let i = 0;
@@ -174,7 +191,7 @@ const updatePossuidos = () => {
 			<div class="title">POSSUÍDOS</div><div class="valordesc">Preço de Venda</div><div class="malasdesc">Mala</div>
 			${nameList.map((item) => (`
 				<div class="model" data-name-key="${item.k}">
-					<div class="imagem-carro"><img src='https://cidadeperdida.ovh/imagens/nation/${item.nome}.png'></div>	
+					<div class="imagem-carro"><img src='https://ice41.pt/imagens/vrp_vehicles/${item.nome}.png'></div>	
 				
 					<div class="name2">${item.nome}</div>
 					<div class="valor">€ ${formatarNumero(item.price)}</div>
@@ -192,19 +209,19 @@ $(document).on("click",".model",function(){
 	if(!isActive) $el.addClass('active');
 });
 
-$(document).on("click",".comprar",function(){
+$(document).on("click",".vender",function(){
 	let $el = $('.model.active');
 	if($el){
-		$.post("http://vrp_dealership/buyDealer",JSON.stringify({
+		$.post("http://vrp_dealership/sellDealer",JSON.stringify({
 			name: $el.attr('data-name-key')
 		}));
 	}
 });
 
-$(document).on("click",".vender",function(){
+$(document).on("click",".comprar",function(){
 	let $el = $('.model.active');
 	if($el){
-		$.post("http://vrp_dealership/sellDealer",JSON.stringify({
+		$.post("http://vrp_dealership/buyDealer",JSON.stringify({
 			name: $el.attr('data-name-key')
 		}));
 	}

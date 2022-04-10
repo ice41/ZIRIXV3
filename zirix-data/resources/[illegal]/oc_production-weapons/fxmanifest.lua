@@ -29,5 +29,5 @@ files {
 	'nui/imagens/pasta-baixa.png',
 	'nui/imagens/pasta-media.png',
 	'nui/imagens/querosene.png',
-	'nui/imagens/soda caustica.png'
+	'nui/imagens/soda-caustica.png'
 }

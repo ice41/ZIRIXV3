@@ -8,7 +8,7 @@ ui_page 'nui/ui.html'
 
 client_scripts {
 	'@vrp/lib/utils.lua',
-	'config/configtrucker.lua',
+	'configtrucker.lua',
 	'hansolo.lua'	
 }
 

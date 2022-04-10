@@ -1,49 +1,43 @@
------------------------------------------------------------------------------------------------------------------------------------------
--- VRP
------------------------------------------------------------------------------------------------------------------------------------------
+-- [https://ice41.pt ]--
+
 local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
 vRP = Proxy.getInterface("vRP")
------------------------------------------------------------------------------------------------------------------------------------------
--- CONEXÃO
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ CONEXÃO ]----------------------------------------------------------------------------------------------------------------------------
+
 src = {}
 Tunnel.bindInterface("vrp_dealership",src)
 vSERVER = Tunnel.getInterface("vrp_dealership")
------------------------------------------------------------------------------------------------------------------------------------------
--- VARIÁVEIS
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ VARIÁVEIS ]--------------------------------------------------------------------------------------------------------------------------
+
 local dealerOpen = false
 local vehicle = {}
 local pointspawn = 1
------------------------------------------------------------------------------------------------------------------------------------------
--- DEALERS
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ DEALERS ]----------------------------------------------------------------------------------------------------------------------------
+
 local dealers = {
-	--{ ['x'] = -1165.89, ['y'] = -1723.67, ['z'] = 11.8 }, -- -1165.89,-1723.67,11.8
-	--{ ['x'] = -1173.57, ['y'] = -1728.99, ['z'] = 11.8 }, -- -1173.57,-1728.99,11.8
-	{ ['x'] = -30.03, ['y'] = -1104.67, ['z'] = 26.42 }, -- -30.03,-1104.67,26.42 concessionaria antiga
-	{ ['x'] = -795.63, ['y'] = -220.03, ['z'] = 37.08 }, -- -795.63,-220.03,37.08 stand de carros
+	{ ['x'] = -56.64, ['y'] = -1096.91, ['z'] = 26.43 }
 }
 
 local spawn = {
-	{ ['x'] = -774.68, ['y'] = -232.67, ['z'] = 37.08, ['h'] = 207.38 }
+	{ ['x'] = -27.5, ['y'] = -1081.94, ['z'] = 26.64, ['h'] = 70.32 }
 }
------------------------------------------------------------------------------------------------------------------------------------------
--- OPEN DEALER
------------------------------------------------------------------------------------------------------------------------------------------
+--[ OPEN DEALER ]------------------------------------------------------------------------------------------------------------------------
+
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(5)
+		local idle = 1000
 		local ped = PlayerPedId()
 		if not IsPedInAnyVehicle(ped) then
 			local x,y,z = table.unpack(GetEntityCoords(ped))
 			for k,v in pairs(dealers) do
 				local distance = Vdist(x,y,z,v.x,v.y,v.z)
-				if distance <= 10.5 then
-					--DrawMarker(21,v.x,v.y,v.z-0.6,0,0,0,0.0,0,0,0.5,0.5,0.4,255,0,0,50,0,0,0,1)
-					DrawMarker(29,v.x,v.y,v.z,0,0,0,0,0,0,1.0,1.0,1.0,199,0,0,50,1,30,30,30)
-					DrawMarker(27,v.x,v.y,v.z-0.97,0,0,0,0,0,0,1.0,1.0,0.5,199,0,0,20,0,0,0,0)
+				if distance < 10.5 then
+					idle = 5
+					DrawMarker(23,v.x,v.y,v.z-0.98,0,0,0,0,0,0,0.7,0.7,0.5, 255, 255, 255, 180,0,0,0,0)
 					if distance <= 1.5 and IsControlJustPressed(0,38) then
 						SetNuiFocus(true,true)
 						SendNUIMessage({ action = "showMenu" })
@@ -53,6 +47,7 @@ Citizen.CreateThread(function()
 				end
 			end
 		end
+		Citizen.Wait(idle)
 	end
 end)
 
@@ -129,11 +124,11 @@ function src.buyRent(vehname)
 					DeleteVehicle(nveh)
 				end)
 
-				TriggerEvent("Notify","importante","Tem 3 minutos para realizar seu test drive.")
+				TriggerEvent("Notify","importante","Tem 3 minutos para realizar o seu test drive.")
 				Wait(60000)
-				TriggerEvent("Notify","importante","Faltam 2 minutos para encerrar seus test drive.")
+				TriggerEvent("Notify","importante","Faltam 2 minutos para encerrar o seu test drive.")
 				Wait(60000)
-				TriggerEvent("Notify","importante","Faltam 1 minuto para encerrar seus test drive.")
+				TriggerEvent("Notify","importante","Faltam 1 minuto para encerrar seu test drive.")
 				Wait(60000)
 				TriggerEvent("Notify","importante","O seu test drive chegou ao fim!")
 
@@ -142,15 +137,15 @@ function src.buyRent(vehname)
 	end
 	return false
 end
------------------------------------------------------------------------------------------------------------------------------------------
--- STARTFOCUS
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ STARTFOCUS ]-------------------------------------------------------------------------------------------------------------------------
+
 Citizen.CreateThread(function()
 	SetNuiFocus(false,false)
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- DEALERCLOSE
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ DEALERCLOSE ]------------------------------------------------------------------------------------------------------------------------
+
 RegisterNUICallback("dealerClose",function(data)
 	SetNuiFocus(false,false)
 	SendNUIMessage({ action = "hideMenu" })
@@ -158,54 +153,44 @@ RegisterNUICallback("dealerClose",function(data)
 	vRP._DeletarObjeto()
 	vRP._stopAnim(false)
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REQUESTCARROS
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ REQUESTCARROS ]----------------------------------------------------------------------------------------------------------------------
+
 RegisterNUICallback("requestCarros",function(data,cb)
 	local veiculos = vSERVER.Carros()
 	if veiculos then
 		cb({ veiculos = veiculos })
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REQUESTMOTOS
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ REQUESTMOTOS ]------------------------------------------------------------------------------------------------------------------------
+
 RegisterNUICallback("requestMotos",function(data,cb)
 	local veiculos = vSERVER.Motos()
 	if veiculos then
 		cb({ veiculos = veiculos })
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REQUESTIMPORT
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ REQUESTIMPORT ]----------------------------------------------------------------------------------------------------------------------
+
 RegisterNUICallback("requestImport",function(data,cb)
 	local veiculos = vSERVER.Import()
 	if veiculos then
 		cb({ veiculos = veiculos })
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REQUESTExclusive
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ REQUESTExclusive ]----------------------------------------------------------------------------------------------------------------------
 RegisterNUICallback("requestExclusive",function(data,cb)
-	local veiculos = vSERVER.Exclusive()
+	local veiculos = vSERVER.exclusive()
 	if veiculos then
-		cb({ veiculos = veiculos })
+		cb({ veiculos = exclusive })
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REQUESTPOSSUIDOS
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNUICallback("requestPossuidos",function(data,cb)
-	local veiculos = vSERVER.Possuidos()
-	if veiculos then
-		cb({ veiculos = veiculos })
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- BUYDEALER
------------------------------------------------------------------------------------------------------------------------------------------
+
+--[ BUYDEALER ]---------------------------------------------------------------------------------------------------------------------------
+
 RegisterNUICallback("buyDealer",function(data)
 	if data.name ~= nil then
 		vSERVER.buyDealer(data.name)
@@ -228,17 +213,8 @@ RegisterNUICallback("addEstoque",function(data)
 	end
 end)
 
------------------------------------------------------------------------------------------------------------------------------------------
--- SELLDEALER
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNUICallback("sellDealer",function(data)
-	if data.name ~= nil then
-		vSERVER.sellDealer(data.name)
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- AUTO-UPDATE
------------------------------------------------------------------------------------------------------------------------------------------
+--[ AUTO-UPDATE ]------------------------------------------------------------------------------------------------------------------------
+
 RegisterNetEvent("dealership:Update")
 AddEventHandler("dealership:Update",function(action)
 	SendNUIMessage({ action = action })
@@ -253,18 +229,18 @@ local vehicle3 = nil
 
 Citizen.CreateThread(function()
 	while true do
-	local heading = 72.27
+	local heading = 180.27
 		Citizen.Wait(10)
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -786.11, -245.02, 36.08, true) < 40 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -48.7, -1098.57, 26.43, true) < 40 then
 			if DoesEntityExist(vehicle1) == false then
-				RequestModel(GetHashKey('fordmustang'))
-				while not HasModelLoaded(GetHashKey('fordmustang')) do
+				RequestModel(GetHashKey('elegy'))
+				while not HasModelLoaded(GetHashKey('elegy')) do
 					Wait(1)
 				end
-				vehicle1 = CreateVehicle(GetHashKey('fordmustang'), -786.11, -245.02, 36.08, heading, false, false)
+				vehicle1 = CreateVehicle(GetHashKey('elegy'), -48.7, -1098.57, 26.43, heading, false, false)
 				FreezeEntityPosition(vehicle1, true)
 				SetEntityInvincible(vehicle1, true)
-				SetEntityCoords(vehicle1, -786.11, -245.02, 36.08, false, false, false, true)
+				SetEntityCoords(vehicle1, -48.7, -1098.57, 26.43, false, false, false, true)
 			else
 				SetEntityHeading(vehicle1, heading)
 				heading = heading
@@ -276,8 +252,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(10000)
-		if vehicle1 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -786.11, -245.02, 36.08, true) < 40 then
-			SetEntityCoords(vehicle1, -786.11, -245.02, 36.08, false, false, false, true)
+		if vehicle1 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -48.7, -1098.57, 26.43, true) < 40 then
+			SetEntityCoords(vehicle1, -48.7, -1098.57, 26.43, false, false, false, true)
 		end
 	end
 end)
@@ -285,18 +261,18 @@ end)
 -- vehicle2
 Citizen.CreateThread(function()
 	while true do
-	local heading = 72.27
+	local heading = 180.27
 		Citizen.Wait(10)
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -789.11, -240.34, 36.08, true) < 40 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -44.23, -1099.33, 26.43, true) < 40 then
 			if DoesEntityExist(vehicle2) == false then
 				RequestModel(GetHashKey('ferrariitalia'))
 				while not HasModelLoaded(GetHashKey('ferrariitalia')) do
 					Wait(1)
 				end
-				vehicle2 = CreateVehicle(GetHashKey('ferrariitalia'), -789.11, -240.34, 36.08, heading, false, false)
+				vehicle2 = CreateVehicle(GetHashKey('ferrariitalia'), -44.23, -1099.33, 26.43, heading, false, false)
 				FreezeEntityPosition(vehicle2, true)
 				SetEntityInvincible(vehicle2, true)
-				SetEntityCoords(vehicle2, -789.11, -240.34, 36.08, false, false, false, true)
+				SetEntityCoords(vehicle2, -44.23, -1099.33, 26.43, false, false, false, true)
 			else
 				SetEntityHeading(vehicle2, heading)
 				heading = heading
@@ -308,8 +284,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(10000)
-		if vehicle2 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -789.11, -240.34, 36.08, true) < 40 then
-			SetEntityCoords(vehicle2, -789.11, -240.34, 36.08, false, false, false, true)
+		if vehicle2 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -44.23, -1099.33, 26.43, true) < 40 then
+			SetEntityCoords(vehicle2, -44.23, -1099.33, 26.43, false, false, false, true)
 		end
 	end
 end)
@@ -317,21 +293,21 @@ end)
 -- vehicle3
 Citizen.CreateThread(function()
 	while true do
-	local heading = 98.22
+	local heading = 180.27
 		Citizen.Wait(10)
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -783.94, -223.84, 36.33, true) < 40 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -40.39, -1099.01, 26.43, true) < 40 then
 			if DoesEntityExist(vehicle3) == false then
 				RequestModel(GetHashKey('zentorno'))
 				while not HasModelLoaded(GetHashKey('zentorno')) do
 					Wait(1)
 				end
-				vehicle3 = CreateVehicle(GetHashKey('zentorno'), -783.94, -223.84, 36.33, heading, false, false)
+				vehicle3 = CreateVehicle(GetHashKey('zentorno'), -40.39, -1099.01, 26.43, heading, false, false)
 				FreezeEntityPosition(vehicle3, true)
 				SetEntityInvincible(vehicle3, true)
-				SetEntityCoords(vehicle3, -783.94, -223.84, 36.33, false, false, false, true)
+				SetEntityCoords(vehicle3, -40.39, -1099.01, 26.43, false, false, false, true)
 			else
-				SetEntityHeading(vehicle3, heading2)
-				heading = heading +0.1
+				SetEntityHeading(vehicle3, heading)
+				heading = heading
 			end
 		end
 	end
@@ -340,8 +316,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(10000)
-		if vehicle3 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -783.94, -223.84, 36.33, true) < 40 then
-			SetEntityCoords(vehicle3, -783.94, -223.84, 36.33, false, false, false, true)
+		if vehicle3 ~= nil and GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), -40.39, -1099.01, 26.43, true) < 40 then
+			SetEntityCoords(vehicle3, -40.39, -1099.01, 26.43, false, false, false, true)
 		end
 	end
 end)
