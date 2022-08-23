@@ -93,8 +93,8 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 function src.startStockade()
 	pos = math.random(#locs)
-		-- src.spawnStockade(locs[pos].x,locs[pos].y,locs[pos].z,locs[pos].x2,locs[pos].y2,locs[pos].z2,locs[pos].h)
-		src.spawnStockade(739.73,1294.01,360.3,719.83, 1276.78, 360.3, 29.31)
+		src.spawnStockade(locs[pos].x,locs[pos].y,locs[pos].z,locs[pos].x2,locs[pos].y2,locs[pos].z2,locs[pos].h)
+		--src.spawnStockade(739.73,1294.01,360.3,719.83, 1276.78, 360.3, 29.31)
 		-- 739.73, 1294.01, 360.3
 		-- 719.83, 1276.78, 360.3
 	TriggerEvent("Notify","sucesso","Hackeado com sucesso, instalado o rastreador no carro forte.",8000)
