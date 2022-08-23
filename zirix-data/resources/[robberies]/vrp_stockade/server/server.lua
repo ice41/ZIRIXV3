@@ -25,7 +25,7 @@ function src.checkTimers()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.getInventoryItemAmount(user_id,"celular") >= 1 and vRP.tryGetInventoryItem(user_id,"celular",1) then -- Item necessário para hackear e pegar a loc do carro forte
+		if vRP.getInventoryItemAmount(user_id,"pendrive") >= 1 and vRP.tryGetInventoryItem(user_id,"pendrive",1) then -- Item necessário para hackear e pegar a loc do carro forte
 			local policia = vRP.getUsersByPermission("policia.permissao")
 			if #policia <= 2 then
 				TriggerClientEvent("Notify",source,"aviso","Número insuficiente de policiais no momento.",8000)
@@ -94,7 +94,7 @@ function src.checkExplosive()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.getInventoryItemAmount(user_id,"wammoWEAPON_STICKYBOMB") >= 1 and vRP.tryGetInventoryItem(user_id,"wammoWEAPON_STICKYBOMB",1) then
+		if vRP.getInventoryItemAmount(user_id,"c4") >= 1 and vRP.tryGetInventoryItem(user_id,"c4",1) then
 			return true
 		else
 			TriggerClientEvent("Notify",source,"negado","Precisa de uma <b>C4</b> para abrir a porta.",8000)
