@@ -1,0 +1,409 @@
+--[[ --Comandos Base v3
+						by ice41 ]]
+
+
+--==** Comands Admnin **==--
+/staff -- entrar no serviço staff
+/admcuff -- (id da pessoa)-- remove as algemas a quem tiver algemado
+/syncarea -- remove Npc's e carros ao redor 
+/apagao 1 -- apaga as luzes da cidade
+/apagao 0 -- anula o apagar das luzes da cidade
+/raio (numero de raios que quer) -- Faz relanpejar as vezes que colocar
+/syncdeleteobj -- remover objectos
+/h -- mostra o seu handle (local para onde está virado)
+/vehash -- mostra a hash do veiculo
+/tptoway -- teleportar para o local mascado no mapa
+/delnpcs -- remover o npc na area
+/vehtuning -- mostra os tuning do carro
+/debug -- monstra todas as hash's perto de si
+/mostrarid -- mostra o id da pessoa perto
+/renomear -- alterar a identidade de um jogador
+/estoque -- 
+/addcar -- 
+/remcar --
+/uncuff --
+/limpararea --
+/skin -- alterar a skin do id indicado
+/fix -- reparar veiculo
+/reviver -- reviver id indicado 
+/reviverall -- reviver todos
+/hash -- 
+/tuning -- coloca o carro com tudo ao maximo
+/wl -- libera a wl ao id indicado
+/unwl -- remove a wl ao id indicado
+/kick -- kick ao id indicado
+/kickall -- kick todos os players
+/ban -- ban o id indicado
+/unban -- unban o id indicado
+/nc -- modo ghost /invisivel/ voar / passar paredes
+/tpcds -- teleportar para as coordenadas
+/cds -- revela as coordenadas que esta ex:['x'] = 610.2, ['y'] = -3092.77, ['z'] = 6.07
+/cds2 -- revela as coordenadas que esta ex: 610.2, -3092.77, 6.07
+/cds3 -- revela as coordenadas que esta ex: {name='ATM', id=277, x=610.2, y=-3092.77, z=6.07}
+/cds4 -- revela as coordenadas que esta ex: x = 610.2, y = -3092.77, z = 6.07
+/group -- adiciona o id indicado ao grupo indicado
+/ungroup -- remover o id indicado ao grupo indicado
+/tptome -- teleportar o id para si
+/tpto -- teleportar para o id indicado
+/org -- adicionar cargo
+/org add -- adicionar cargo
+/org rem -- remover cargo
+/ids --
+/plano -- 
+/vip --
+/vip add --
+/vip rem --
+/bvida --
+/status -- mostra policia/medicos/mecanicos
+/skinmenu (nome da skin que quer ) -- altera a skin do seu perssonagem 
+/skinmenu (nome da skin que quer ) (id da pessoa)-- altera a skin do perssonagem da pessoa selecionada
+/admin -- menssagem do admin no chat geral
+/item (item que quer )-- spawn de item no inventário
+/uservehs -- ver os veiculos que o user tem
+/reskin -- 
+/id --
+/clima -- altarar o clima Ex: EXTRASUNNY, CLEAR, NEUTRAL, SMOG, FOGGY, OVERCAST, CLOUDS, CLEARING, RAIN, THUNDER, SNOW, BLIZZARD, SNOWLIGHT, XMAS, HALLOWEEN
+/hour -- alterar hora
+/freeze -- parar o tempo
+/freezeweather -- parar a alteração de tempo
+
+
+--==** Advance shops **==--
+/loja renomear
+/loja sacar
+/loja vender
+
+
+
+
+
+--==** Utilidade Publica **==--
+
+F11 -- Para ver sua identidade, RG, número de telefone, dinheiro na carteira e no banco
+F6 -- Para cancelar animações
+F7 -- Para cancelar missões/Cancela missões
+\ -- Abre o inventário (\) 
+DEL -- menu de animações
+M -- Empurra veículo avariado
+Z -- Muda a distancia da fala
+O -- Para interagir com o porta-malas do seu carro
+Z -- Liga/Desliga motor do veículo
+L -- Tranca/Destranca o veículo
+G -- Algemar (item necessario)
+X -- Levanta as mãos 
+B -- Apontar com o dedo 
+/vehs -- Lista de seus veículos
+/homes -- Todas as residências em seu nome
+/homes list -- Todas as residências para venda
+/multas VALOR -- Você  paga suas multas no banco
+/alertas -- Ativa e desativa os alertas
+/pack CARGA -- Criar caminho de entrega da carga do caminhoneiro
+H -- Soltar carga do caminhão ao manter pressionado
+/me -- Efetuar uma animação não existente
+/cr -- ligar o controlo de velocidade(editado)
+/vtuning -- Lista todos os tunings do veículo
+/capo -- Abrir capô do veículo
+/doors -- Abrir todas as portas do veículo
+/portas (numero) -- Abrir porta-malas especificada do veículo
+/vidros -- Abrir e fechar os vidros do veículo
+/trunk -- abrir porta do porta malas
+/ancorar -- Para ancorar/desancorar barcos
+/chamar -- Enviar chamado = taxi, mec, 911, 112
+/ajuda -- Abrir um ticket para Admin ou Suporte 
+/card -- Para jogar um carteado 
+/carregar -- Carrega um americano 
+/roubar -- Rouba os itens da pessoa mais próxima 
+/garmas -- Guarda o armamento na mochila 
+/me -- Efetuar uma animação não existente 
+/911 -- Comunicar-se com os policias 
+/112 -- Comunicar-se com os paramédicos 
+/hora -- mostra a hora actual do (GTA/FIVEM)
+/attachs s -- adiciona attachs as armas
+/attachs p -- adiciona attachs as armas
+
+
+
+
+
+
+--==** Homes -- Casas **==--
+/homes add -- adicionar pessoa á sua casa
+/homes rem -- remover pessoa da sua casa
+/homes garage -- adicionar pessoa á sua garagem da casa
+/homes list -- Mostra as casas disponivéis e as suas
+/homes transfer (id da pessoa) -- Transferir a casa para outra pessoa
+/homes tax -- Pagar a taxa da casa
+
+
+--==** Comandos das casas **==--
+/vault -- para abrir o bau da casa
+/enter -- para entrar na casa
+/exit -- para sair da casa
+
+
+--==** Comandos casa Policia **==--
+/invade -- invadir a casa 
+
+
+
+
+--==** Outras utilidades **==--
+/roupas x -- Para colocar roupas do emprego 
+/colete x y -- Para colocar um colete 
+/calca x y -- Para colocar uma calca 
+/maos x y -- Para mudar as mãos 
+/acessorio x y -- Para colocar um acessório 
+/sapato x y -- Para colocar um sapato 
+/mascara -- Retira e coloca uma máscara 
+/chapeu x y -- Para colocar um chapéu 
+/oculos x y -- Para colocar um óculos 
+/blusa x y -- Para colocar uma blusa 
+/jaqueta x y -- Para colocar uma jaqueta 
+/multas -- Verifica e paga as suas multas 
+/paypal -- Movimentação bancária de Sacar/Trans 
+/enviar -- Envia dinheiro a pessoa mais próxima 
+/paypal pagar (id da pessoa) -- pagar para pessoa por paypal
+/paypal sacar (quantia) -- sacar a quantia indicada pelo paypal
+
+
+
+
+--==** POLICIA **==--
+
+/placa -- Mostra a placa do veículo mais próximo 
+/multar -- Aplicar multa no ID destinado 
+/rg (id da pessoa) -- ver o passaporte da pessoa
+/rg2 (id da pessoa) -- ver o passaporte da pessoa
+/rmascara -- Retirar a mascara da pessoa próxima 
+/rchapeu -- Retirar o chapéu da pessoa próxima 
+/rcapuz -- Retirar o capuz da pessoa próxima 
+/oculos -- Retirar os oculos da pessoa próxima 
+/re -- Reanimar a pessoa em coma 
+G -- para algemar (Policias não precisam do item no inventário)
+/cv -- Colocar a pessoa algemada no veículo 
+/rv -- Remover a pessoa do veículo
+/revistar
+/servico -- virifica quem está on de cada serviço ex: policia pode apenas ver policias / ems apenas ve ems 
+/p -- partilhar a localização com outros policias
+/ocorrencia -- registar ocorrencia
+/rcolete -- remover colete
+/ptr -- entrar e sair de patrulha
+	-----------------------
+
+/extras -- Para Colocar/Remover extras do veículo 
+/apreender -- Apreensão de todos os itens 
+/cone -- Coloca um cone a sua frente 
+/cone d -- Retira um cone a sua frente 
+/barreira -- Coloca uma barreira a sua frente 
+/barreira d -- Retira uma barreira a sua frente 
+/spike -- Coloca um espinho a sua frente 
+/spike d -- Retira um espinho a sua frente
+/prender -- Envia uma pessoa para a prisão
+/detido -- Deixa o veículo na detenção 
+/travar -- Para Travar/Destravar veículo detido 
+/reanimar -- Reanimar um npc 
+/pd -- Chat de conversa dos policias 
+/pr -- Chat de conversa dos paramédicos 
+/ptr -- Mostra quantos Oficiais em serviço 
+
+
+--==** PARAMÉDICO **==--
+
+/tratamento -- Inicia o tratamento no paciente 
+/diagnostico -- Inicia o diagnostico do paciente
+/laudo -- inicia o formulário para passar a receita médica
+/rg (id da pessoa) -- ver o passaporte da pessoa
+/rg2 (id da pessoa) -- ver o passaporte da pessoa
+/rmascara -- Retirar a mascara da pessoa próxima 
+/rchapeu -- Retirar o chapéu da pessoa próxima 
+/rcapuz -- Retirar o capuz da pessoa próxima 
+/oculos -- Retirar os oculos da pessoa próxima 
+/re -- Reanimar a pessoa em coma 
+G -- para algemar (Policias não precisam do item no inventário)
+/cv -- Colocar a pessoa algemada no veículo 
+/rv -- Remover a pessoa do veículo
+
+--==** MECÂNICO **==--
+
+
+/tow -- Para colocar veículo na prancha 
+/mec -- Chat de avisos 
+/mr -- Chat interno dos mecânicos		
+/reparar -- reparar veículo completo
+/repararmotor -- apenas repara o motor
+
+
+--==** BOTÕES DE ATALHO **==--
+
+/F1 -- Cruzar os braços 
+/F2 -- Gesto de aguardar 
+/F3 -- Mostrar os dedos do meio 
+/F6 -- Cancela qualquer animação ativa 
+/F10 -- Mãos na cabeça 
+/F11 -- Mostra informações da identidade 
+	----------------------- 
+/CTRL -- Agachar-se 
+/ARROW UP -- Saudação 
+/ARROW DOWN -- Assobiar 
+/ARROW LEFT -- Joia 
+/ARROW RIGHT -- Facepalm
+
+--==** ANIMAÇÕES ANDANDO **==--
+
+/e caixa -- Segurar uma caixa na mão 
+/e cafe -- Segurar um copo de café 
+/e cafe2 -- Segurar e beber um copo de café 
+/e anotar -- Anotações em uma caderneta 
+/e binoculos -- Para usar um binóculo 
+/e camera -- Para pegar uma câmera fotográfica 
+/e camera2 -- Para pegar uma filmadora 
+/e mapa -- Olhar para o mapa da cidade 
+/e selfie -- Pegar o celular para tirar uma selfie 
+/e selfie2 -- Pegar o celular para tirar uma selfie 
+/e chuva -- Usar guarda-chuva 
+/e chuva2 -- Usar guarda-chuva 
+/e peace -- Saudar a pessoa com um paz e amor 
+/e lero -- Balaçar as mãos 
+/e beijo -- Mandar um beijo 
+/e pano -- Limpa o veículo mais próximo
+
+--==** ANIMAÇÕES **==--
+
+/e digitar -- Digitar no computador de uma mesa 
+/e postura -- Postura com mãos no cinto 
+/e postura2 -- Postura com mãos no cinto 
+/e palmas -- Bater palmas 
+/e palmas2 -- Bater palmas com entusiasmo 
+/e palmas3 -- Bater palmas com entusiasmo 
+/e palmas4 -- Bater palmas de forma discreta 
+/e comer -- Comer um x-burguer 
+/e comer2 -- Comer um cachorro-quente 
+/e comer3 -- Comer uma rosquinha 
+/e beber -- Consumir bebida alcoólica 
+/e beber2 -- Consumir bebida energética 
+/e malicia -- Ato provocativo 
+/e radio -- Usar o rádio da policia 
+/e placa -- Segurar uma placa 
+/e pano2 -- Limpa o veículo mais próximo
+
+/e continencia -- Prestar continência 
+/e prancheta -- Anotações em uma prancheta 
+/e ligar -- Realizar uma ligação 
+/e musica -- Tocar guitarra 
+/e musica2 -- Tocar guitarra 
+/e musica3 -- Tocar violão 
+/e musica4 -- Tocar violão 
+/e beber3 -- Consumir cerveja 
+/e beber4 -- Consumir whisky 
+/e beber5 -- Consumir cerveja 
+/e beber6 -- Consumir cerveja 
+/e beber7 -- Consumir água 
+/e varrer -- Varrer o chão 
+/e placa2 -- Segurar uma placa 
+/e placa3 -- Segurar uma placa
+
+--==** ANIMAÇÕES PARADAS **==--
+
+
+/e deitar -- Deitar com o braço na frente do rostoo 
+/e deitar2 -- Deitar de bruços 
+/e deitar3 -- Deitar de barriga pra cima 
+/e deitar4 -- Deitar de barriga para baixo 
+/e debrucar -- Debruçar num parapeito 
+/e sexo -- Ato sexual 
+/e sexo2 -- Ato sexual 
+/e sexo3 -- Ato sexual 
+/e sexo4 -- Ato sexual 
+/e sexo5 -- Ato sexual 
+/e sexo6 -- Ato sexual 
+/e dancar -- Dançar ( total de 226 ) 
+/e trotar -- Performar um trote parado 
+/e sentar -- Sentar em uma cadeira/banco 
+/e sentar2 -- Sentar no chão 
+/e sentar3 -- Sentar no chão 
+/e fumar4 -- Fumar 
+/e tragar -- Tragar cigarro não convencional 
+/e malhar -- Performar musculação com uma barra 
+/e malhar2 -- Performar musculação com uma barra alta 
+/e martelo -- Martelar 
+/e pescar -- Usar uma varinha de pesca
+
+/e sentar4 -- Sentar no chão 
+/e striper -- Posar como uma striper 
+/e escutar -- Escutar através da parede/porta 
+/e alongar -- Alongar-se 
+/e dj -- Agir como um DJ 
+/e rock -- Tocar um guitarra invisível 
+/e rock2 -- Fazer o símbolo do rock com as mãos 
+/e abracar -- Abraçar 
+/e abracar2 -- Abraçar 
+/e peitos -- Realçar os peitos 
+/e espernear -- Espernear no chão 
+/e arrumar -- Pegar e arrumar coisas do chão 
+/e bebado -- Cair e levantar algumas vezes no chão 
+/e bebado2 -- Levantar do chão 
+/e bebado3 -- Levantar do chão 
+/e yoga -- Performar yoga 
+/e pescar2 -- Usar uma varinha de pesca 
+/e procurar -- Agachar-se no chão para procurar 
+/e sinalizar -- Usar um sinalizador 
+/e soprador -- Usar um soprador 
+/e mecanico -- Deitar-se no chão e mexer no motor
+
+/e abdominal -- Performar abdominais 
+/e bixa -- Posar como uma striper 
+/e britadeira -- Usar um britadeira 
+/e cerveja -- Beber cerveja 
+/e churrasco -- Usar uma churrasqueira 
+/e consertar -- Pega o massarico na mão 
+/e dormir -- Deitar para dormir 
+/e ajoelhar -- Ajoelha no chão 
+/e dormir2 -- Deitar para dormir 
+/e flexao -- Performar flexões 
+/e esquentar -- Esquentar as mãos 
+/e fumar -- Fumar (masculino) 
+/e fumar2 -- Fumar (feminino) 
+/e fumar3 -- Fumar 
+/e mecanico3 -- Apoiar-se na frente do veículo 
+/e beijar -- Beijar 
+/e estatua -- Performar uma estátua 
+/e encostar -- Encostar-se 
+/e plantar -- Agachar-se no chão 
+/e mecanico2 -- Apoiar-se na frente do veículo
+
+--==** MODOS DE ANDAR **==--
+
+
+/homem -- Andar como um homem 
+/mulher -- Andar como uma mulher 
+/depressivo -- Andar como um depressivo 
+/depressiva -- Andar como uma depressiva 
+/empresario -- Andar como um empresário 
+/determinado -- Andar como um determinado 
+/descontraido -- Andar como um descontraido 
+/farto -- Andar como um farto 
+/estiloso -- Andar como um estiloso 
+/ferido -- Andar ferido 
+/arrogante -- Andar como um arrogante
+
+/nervoso -- Andar como um nervoso 
+/desleixado -- Andar como um desleixado 
+/infeliz -- Andar como um infeliz 
+/musculoso -- Andar como um musuloso 
+/desligado -- Andar como um desligado 
+/fadiga -- Andar como um fadigado 
+/apressado -- Andar como um apressado 
+/descolado -- Andar como um descolado 
+/bebado -- Andar como um bebado 
+/bebado2 -- Andar como um bebado
+
+/bebado3 -- Andar como um bebado 
+/irritado -- Andar como um irritado 
+/intimidado -- Andar como um intimidador 
+/poderosa -- Andar como uma mulher poderosa 
+/chateado -- Andar como um chateado 
+/estilosa -- Andar como uma mulher estilosa 
+/sensual -- Andar como uma mulher sensual 
+/corridinha -- Trotar 
+/piriguete -- Andar como um(a) piriguete 
+/petulante -- Andar como um petulante
