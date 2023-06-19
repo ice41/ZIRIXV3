@@ -18,7 +18,7 @@ Ou pode consultar mais sobre no meu servidor [Discord](https://discord.gg/Qsr9s6
 - **Discord: https://discord.gg/kYFy8JwVfd**
 - **Website: https://ziraflix.com.br**
 
-## Contato Versão Linux
+## Contato para esta versão Linux
 - **Comercial: geral@ice41.pt**
 - **Discord: https://discord.gg/Qsr9s6x9Mv**
 - **Website: https://ice41.pt**
