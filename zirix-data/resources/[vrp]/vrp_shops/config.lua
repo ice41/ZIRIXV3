@@ -6,15 +6,15 @@ config = {}
 	2. Caso NÃO utilize, insira abaixo o IP da sua maquina e/ou serviço de images, seguindo do diretório. Exemplo: "127.0.0.1:3355/images".
 ]]
 
-config.imageService = ''
+config.imageService = 'http://127.0.0.1/imagens/vrp_itens'
 
-config.webhook = ''
+config.webhook = 'https://discord.com/api/webhooks/972272669082943528/zqal3YWHoqG40mr-0k2XYrrgNZM_p16JcYqu-cx78iPP4g4B_DSgu7qP9GU67iTYH5p9'
 
-config.webhookBottomText = 'ZIRIX V3 BY ZIRAFLIX - '
-config.webhookIcon = 'https://i.imgur.com/Y5Zktwm.png'
+config.webhookBottomText = 'ice41 RP - '
+config.webhookIcon = 'https://i.ibb.co/M1Lk7hz/ice41-500x500.png'
 config.webhookColor = 16431885
 
-config.showBlip = false
+config.showBlip = true
 
 config.shops = { 
     ['acessories'] = {
