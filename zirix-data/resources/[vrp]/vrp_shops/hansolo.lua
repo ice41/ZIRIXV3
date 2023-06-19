@@ -3,127 +3,429 @@ local Proxy = module('vrp','lib/Proxy')
 vRP = Proxy.getInterface('vRP')
 vRPclient = Tunnel.getInterface('vRP')
 
-vSERVER = Tunnel.getInterface('vrp_shops')
+src = {}
+Tunnel.bindInterface('vrp_shops',src)
 
-local menuactive = false
-local openShop = {}
-local tShop = ''
-local dShop = ''
+vRP._prepare('vRP/get_points','SELECT * FROM vrp_stock_exchange WHERE name = @name')
+vRP._prepare('vRP/set_points','UPDATE vrp_stock_exchange SET points = @points WHERE name = @name')
 
-Citizen.CreateThread(function()
-	SetNuiFocus(false,false)
-end)
+function src.openNav(shopName)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local data = vRP.getUserDataTable(user_id)
 
-RegisterNUICallback("shopClose",function(data)
-	TransitionFromBlurred(1000)
-	SetNuiFocus(false,false)
-	SendNUIMessage({ action = "hideMenu" })
-	menuactive = false
-	openShop = nil
-	dShop = nil
-end)
+    local tSlot = vRP.verifySlots(user_id)
+    local tcSlot = 0
 
-RegisterNUICallback("buyItem",function(data)
-	vSERVER.buyItem(data.item, data.amount, openShop)
-end)
+    local inventory = {}
+    local shop = {}
 
-RegisterNUICallback("sellItem",function(data)
-	print(data.item)
-	vSERVER.sellItem(data.item,data.amount,openShop)
-end)
+    if user_id then
+        local fSlot = 9
+        local fcSlot = 9
 
-RegisterNetEvent("vrp_shops:Update")
-AddEventHandler("vrp_shops:Update",function(action)
-	SendNUIMessage({ action = action })
-end)
+        if tSlot ~= nil then
+            tSlot = tSlot
+        else
+            tSlot = 6
+        end
 
-function ToggleActionMenu(type)
-	menuactive = not menuactive
-	if menuactive then
-		TransitionToBlurred(1000)
-		SetNuiFocus(true,true)
-		SendNUIMessage({ action = "showMenu", type = type })
-	else
-		TransitionFromBlurred(1000)
-		SetNuiFocus(false,false)
-		SendNUIMessage({ action = "hideMenu" })
-		openShop = nil
-		tShop = nil
-	end
+        if tSlot < fSlot then
+            fSlot = fSlot - tSlot
+        elseif tSlot >= fSlot then
+            fSlot = 0
+        end
+
+        if data and data.inventory then
+            for k,v in pairs(data.inventory) do
+                if vRP.itemBodyList(k) then
+                    tSlot = tSlot - 1
+                    table.insert(inventory,{ amount = parseInt(v.amount), name = vRP.itemNameList(k), index = vRP.itemIndexList(k), key = k, type = vRP.itemTypeList(k), peso = vRP.getItemWeight(k) })
+                end
+            end
+        end
+
+        for k,v in pairs(config.shops) do
+            if k == shopName then
+                for k,v in pairs(v.itens) do
+                    tcSlot = tcSlot + 1
+                    table.insert(shop, { itemBody = v.itemName, itemIndex = vRP.itemIndexList(v.itemName), itemName = vRP.itemNameList(v.itemName), itemPrice = parseInt(v.itemPrice), itemAmount = parseInt(v.itemAmount) })
+                end
+            end
+        end
+
+        if tcSlot < fcSlot then
+            fcSlot = fcSlot - tcSlot
+        elseif tcSlot >= fcSlot then
+            fcSlot = 0
+        end
+
+        return inventory, vRP.getInventoryWeight(user_id), vRP.getInventoryMaxWeight(user_id), parseInt(tSlot), parseInt(fSlot), parseInt(fcSlot), shop
+    end
 end
 
-RegisterNUICallback('requestShops',function(data,cb)
-	local shopName = dShop
-	local inventory, weight, maxweight, slots, fslots, fshopslots, itemsshop = vSERVER.openNav(dShop)
-	local imageService = config.imageService
-	if inventory then
-		cb({ inventory = inventory, weight = weight, maxweight = maxweight, slots = slots, fslots = fslots, fshopslots = fshopslots, itemsshop = itemsshop, shopName = shopName, imageService = imageService })
-	end
-end)
-
-RegisterNetEvent("vrp_shops:open")
-AddEventHandler("vrp_shops:open",function()
-	local ped = PlayerPedId()
-	local x,y,z = table.unpack(GetEntityCoords(ped))
-	for k,v in pairs(config.shops) do
-		tShop = k
-		for k,v in pairs(v.coords) do
-			local bowz,cdz = GetGroundZFor_3dCoord(v.x, v.y, v.z)
-			local distance = GetDistanceBetweenCoords(v.x, v.y, cdz, x, y, z, true)
-			if distance < 1.2 then
-				dShop = tShop
-				ToggleActionMenu(tShop)
-				openShop = tShop
-			end
-		end
-	end
-end)
-
-Citizen.CreateThread(function()
-	while config.showBlip do
-		local idle = 1000
-		local ped = PlayerPedId()
-		local x,y,z = table.unpack(GetEntityCoords(ped))
-		for k,v in pairs(config.shops) do
-			for k,v in pairs(v.coords) do
-				local bowz,cdz = GetGroundZFor_3dCoord(v.x, v.y, v.z)
-				local distance = GetDistanceBetweenCoords(v.x, v.y, cdz, x, y, z, true)
-				if distance < 5.0 then
-					idle = 5
-					--DrawMarker(23, v.x, v.y, v.z-0.97,0,0,0,0,0,0,0.7,0.7,0.5, 66, 236, 134, 150,0,0,0,0)
-					DrawText3D(v.x, v.y, v.z-0.05, "[~g~E~w~] Para abrir a  ~g~Loja~w~.")
-				end
-			end
-		end
-		Citizen.Wait(idle)
-	end
-end)
-
---[ FUNÇÕES ]----------------------------------------------------------------------------------------------------------------------------
-
-function DrawText3D(x,y,z, text)
-    local onScreen,_x,_y=World3dToScreen2d(x,y,z)
-    local px,py,pz=table.unpack(GetGameplayCamCoords())
+function src.buyItem(itemName, amount, shopName)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local identity = vRP.getUserIdentity(user_id)
+    if user_id then
+        if amount and amount >= 1  then
+            for k,v in pairs(config.shops) do
+                local nShop = k
+                for k,v in pairs(v.itens) do
+                    if itemName == v.itemName then
+                        if shopName == nShop then
+                            if vRP.checkExistentItem(user_id, itemName) then
+                                if vRP.getInventoryWeight(user_id)+vRP.getItemWeight(v.itemName)*v.itemAmount*amount <= vRP.getInventoryMaxWeight(user_id) then
+                                -- verificação porte de arma
+                                    if v.gunlicense then
+                                        if identity.gunlicense == 1 and vRP.getInventoryItemAmount(user_id,'portearmas') >= 1 then
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
     
-    SetTextScale(0.28, 0.28)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(1)
-    AddTextComponentString(text)
-    DrawText(_x,_y)
-    local factor = (string.len(text)) / 370
-    DrawRect(_x,_y+0.0125, 0.005+ factor, 0.03, 41, 11, 41, 68)
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Você precisar ter <b>porte de armas</b>.')
+                                        end
+                                -- fim verificação porte arma
+                                else
+								-- inicio requerer receita
+								if v.itemRequire ~= nil then    
+                                    if vRP.getInventoryItemAmount(user_id,v.itemRequire) >= amount then
+										if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+											vRP.tryGetInventoryItem(user_id,v.itemRequire,amount)
+											vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+											local rows = vRP.query('vRP/get_points',{ name = shopName })
+											local resultado = 0
+											if #rows > 0 then
+												resultado = json.encode(rows[1].points)
+											end
+											local newPoints = resultado + amount
+
+											vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+											TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+											TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+											PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+										else
+											TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+										end
+									else
+										TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..vRP.itemNameList(v.itemRequire)..'</b>.')
+									end
+								-- fim requerer receita
+                                -- inicio do check de permissão coca
+                                elseif v.coca then    
+                                    if vRP.hasPermission(user_id,"vanilla.permissao") then
+                                        if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) and vRP.hasPermission(user_id,"vanilla.permissao") then
+                                            vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                            local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                            local resultado = 0
+                                            if #rows > 0 then
+                                                resultado = json.encode(rows[1].points)
+                                            end
+                                            local newPoints = resultado + amount
+
+                                            vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                            PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                        end
+                                else
+                                    TriggerClientEvent('Notify',source,'negado','Precisar ser <b>Membro</b> do grupo.')
+                                end
+                                -- fim do check de permissão coca
+                                --inicio do check de permissao de armas
+                                elseif v.arma then    
+                                    if vRP.hasPermission(user_id,"cartel.permissao") or vRP.hasPermission(user_id,"mafia.permissao") or vRP.hasPermission(user_id,"abutres.permissao") then
+                                        if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) and vRP.hasPermission(user_id,"cartel.permissao") or vRP.hasPermission(user_id,"mafia.permissao") or vRP.hasPermission(user_id,"abutres.permissao")then
+                                            vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                            local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                            local resultado = 0
+                                            if #rows > 0 then
+                                                resultado = json.encode(rows[1].points)
+                                            end
+                                            local newPoints = resultado + amount
+
+                                            vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                            PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                        end
+                                else
+                                    TriggerClientEvent('Notify',source,'negado','Precisar ser <b>Membro</b> do grupo.')
+                                end
+                                -- fim do check de permissão de armas
+                                -- inicio do check de permissão coca
+                                else
+                                    if v.itemRequire ~= nil then
+                                        if vRP.hasPermission(user_id,"vanilla.permissao") then
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                                vRP.tryGetInventoryItem(user_id,v.itemRequire,amount)
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
+    
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..vRP.itemNameList(v.itemRequire)..'</b>.')
+                                        end
+                                -- fim do check de permissão coca
+                                -- inicio do check de permissão armas
+                            if v.itemRequire ~= nil then
+                                elseif vRP.hasPermission(user_id,"mafia.permissao") or vRP.hasPermission(user_id,"cartel.permissao") then
+                                    if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                        vRP.tryGetInventoryItem(user_id,v.itemRequire,amount)
+                                        vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                        local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                        local resultado = 0
+                                        if #rows > 0 then
+                                            resultado = json.encode(rows[1].points)
+                                        end
+                                        local newPoints = resultado + amount
+
+                                        vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                        TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                        TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                        PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                    else
+                                        TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                    end
+                                else
+                                    TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..vRP.itemNameList(v.itemRequire)..'</b>.')
+                                end
+										-- fim de check de permissao de armas
+										
+                                else
+                                    if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                        vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                        local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                        local resultado = 0
+                                        if #rows > 0 then
+                                            resultado = json.encode(rows[1].points)
+                                        end
+                                        local newPoints = resultado + amount
+
+                                        vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+
+                                        TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                        TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                        PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                    else
+                                        TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                    end
+                                end
+                            end
+                        end
+                        else
+                            TriggerClientEvent('Notify',source,'negado','Mochila <b>cheia</b>.')
+                        end
+                            else
+                                if vRP.getInventoryWeight(user_id)+vRP.getItemWeight(v.itemName)*v.itemAmount*amount <= vRP.getInventoryMaxWeight(user_id) and vRP.getRemaingSlots(user_id) >= 1 then
+                                    if v.gunlicense then    
+                                        if identity.gunlicense == 1 and vRP.getInventoryItemAmount(user_id,'portearmas') >= 1 then
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
+    
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Você precisar ter <b>porte de armas</b>.')
+                                        end
+                                    -- inicio do check de permissão vanilla
+                                else
+                                    if v.coca then    
+                                        if vRP.hasPermission(user_id,"vanilla.permissao") then
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) and vRP.hasPermission(user_id,"vanilla.permissao") then
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
+    
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Precisar ser <b>Membro</b> do grupo.')
+                                        end
+                                    -- fim do check de permissão vanilla
+									-- inicio do check de permissao armas
+									elseif v.arma then    
+                                        if vRP.hasPermission(user_id,"mafia.permissao") or vRP.hasPermission(user_id,"cartel.permissao") or vRP.hasPermission(user_id,"abutres.permissao") then
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) and vRP.hasPermission(user_id,"cartel.permissao") or vRP.hasPermission(user_id,"mafia.permissao") or vRP.hasPermission(user_id,"abutres.permissao") then
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
+    
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Precisar ser <b>Membro</b> do grupo.')
+                                        end
+									-- fim do check de permissao armas
+                                       
+                                    else
+                                        if v.itemRequire ~= nil then
+                                            if vRP.getInventoryItemAmount(user_id,v.itemRequire) >= amount then
+                                                if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                                    vRP.tryGetInventoryItem(user_id,v.itemRequire,amount)
+                                                    vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                    local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                    local resultado = 0
+                                                    if #rows > 0 then
+                                                        resultado = json.encode(rows[1].points)
+                                                    end
+                                                    local newPoints = resultado + amount
+        
+                                                    vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+                                                    TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                    TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                    PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                                else
+                                                    TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                                end
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..vRP.itemNameList(v.itemRequire)..'</b>.')
+                                            end
+                                        else
+                                            if vRP.tryPayment(user_id,parseInt(v.itemPrice*amount)) then
+                                                vRP.giveInventoryItem(user_id,v.itemName,parseInt(v.itemAmount*amount))
+                                                local rows = vRP.query('vRP/get_points',{ name = shopName })
+                                                local resultado = 0
+                                                if #rows > 0 then
+                                                    resultado = json.encode(rows[1].points)
+                                                end
+                                                local newPoints = resultado + amount
+    
+                                                vRP.execute('vRP/set_points', { name = shopName, points = newPoints })
+    
+                                                TriggerClientEvent('itensNotify',source,'sucesso','Comprou',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                                TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                                PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM COMPROU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM COMPRADO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                            else
+                                                TriggerClientEvent('Notify',source,'negado','Dinheiro insuficiente.')
+                                            end
+                                        end
+                                    end
+                                end
+                                else
+                                    TriggerClientEvent('Notify',source,'negado','Mochila <b>cheia</b>.')
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        else
+            TriggerClientEvent('Notify',source,'negado','Quantidade <b>inválida</b>.')
+        end
+    end
 end
 
-function drawTxt(text,font,x,y,scale,r,g,b,a)
-	SetTextFont(font)
-	SetTextScale(scale,scale)
-	SetTextColour(r,g,b,a)
-	SetTextOutline()
-	SetTextCentre(1)
-	SetTextEntry("STRING")
-	AddTextComponentString(text)
-	DrawText(x,y)
+function src.sellItem(itemName,amount,shopName)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local identity = vRP.getUserIdentity(user_id)
+    if user_id then
+        if amount and amount >= 1  then
+            for k,v in pairs(config.shops) do
+                local nShop = k
+                for k,v in pairs(v.itens) do
+                    if itemName == v.itemName then
+                        if shopName == nShop then
+                            if v.gunlicense ~= nil and v.gunlicense or v.itemRequire ~= nil and v.itemRequire then
+                                TriggerClientEvent('Notify',source,'negado','Você <b>não</b> pode vender isso.')
+                            else
+                                if vRP.checkExistentItem(user_id, 'dinheiro') then
+                                    if vRP.getInventoryWeight(user_id) + vRP.getItemWeight('dinheiro') * parseInt(v.saleValue*amount) <= vRP.getInventoryMaxWeight(user_id) then
+                                        if vRP.getInventoryItemAmount(user_id,v.itemName) >= amount then
+                                            vRP.tryGetInventoryItem(user_id,v.itemName,amount)
+                                            vRP.giveInventoryItem(user_id, 'dinheiro', parseInt(v.saleValue*amount))
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Vendeu',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Recebeu',''..vRP.itemIndexList('dinheiro')..'',''..vRP.format(parseInt(v.saleValue*amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                            PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM VENDEU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM VENDIDO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ][ **Valor: ' ..parseInt(v.saleValue)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..v.itemName..'</b>.')
+                                        end
+                                    else
+                                        TriggerClientEvent('Notify',source,'negado','Você <b>não pode</b> vender esse produto, porque não tem espaço na mochila para receber o pagamento.')
+                                    end
+                                else
+                                    if vRP.getInventoryWeight(user_id) + vRP.getItemWeight('dinheiro') * parseInt(v.saleValue*amount) <= vRP.getInventoryMaxWeight(user_id) and vRP.getRemaingSlots(user_id) >= 1 then
+                                        if vRP.getInventoryItemAmount(user_id,v.itemName) >= amount then
+                                            vRP.tryGetInventoryItem(user_id,v.itemName,amount)
+                                            vRP.giveInventoryItem(user_id, 'dinheiro', parseInt(v.saleValue*amount))
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Vendeu',''..vRP.itemIndexList(v.itemName)..'',''..vRP.format(parseInt(amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('itensNotify',source,'sucesso','Recebeu',''..vRP.itemIndexList('dinheiro')..'',''..vRP.format(parseInt(v.saleValue*amount))..'',''..vRP.format(vRP.getItemWeight(v.itemName)*parseInt(amount))..'')
+                                            TriggerClientEvent('vrp_shops:Update',source,'updateShop')
+                                            PerformHttpRequest(config.webhook, function(err, text, headers) end, 'POST', json.encode({embeds = {{title = 'REGISTRO DE LOJA:\n⠀', thumbnail = {url = config.webhookIcon}, fields = {{name = '**QUEM VENDEU:**', value = '**'..identity.name..' '..identity.firstname..'** [**'..user_id..'**]'}, {name = '**ITEM VENDIDO:**', value = '[ **Item: '..vRP.itemNameList(itemName)..'** ][ **Quantidade: '..parseInt(amount)..'** ][ **Valor: ' ..parseInt(v.saleValue)..'** ]\n⠀⠀'}, {name = '**LOJA:**', value = '[ **'..nShop..'** ]\n⠀⠀'}}, footer = {text = config.webhookBottomText..os.date('%d/%m/%Y | %H:%M:%S'), icon_url = config.webhookIcon}, color = config.webhookColor}}}), {['Content-Type'] = 'application/json'})
+                                        else
+                                            TriggerClientEvent('Notify',source,'negado','Você precisa de <b>'..amount..'x '..v.itemName..'</b>.')
+                                        end
+                                    else
+                                        TriggerClientEvent('Notify',source,'negado','Você <b>não pode</b> vender esse produto, porque não tem espaço na mochila para receber o pagamento.') 
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        else
+            TriggerClientEvent('Notify',source,'negado','Quantidade <b>inválida</b>.')
+        end
+    end
 end
