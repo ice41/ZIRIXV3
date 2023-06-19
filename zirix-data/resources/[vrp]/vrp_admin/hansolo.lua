@@ -79,9 +79,12 @@ AddEventHandler("syncdeleteobj",function(index)
     end
 end)
 
-RegisterCommand("h",function(source,args)
-	TriggerEvent('chatMessage',"HEADING",{255,70,50},GetEntityHeading(PlayerPedId()))
+RegisterCommand("h",function(source,args, rawCommand)
+	--TriggerEvent('chatMessage',"HEADING",{255,70,50},GetEntityHeading(PlayerPedId()))
+    local heading = GetEntityHeading(PlayerPedId())
+    vRP.prompt(source,"HEADING:"..heading)
 end)
+
 
 RegisterNetEvent("vehash")
 AddEventHandler("vehash",function()
@@ -91,8 +94,8 @@ AddEventHandler("vehash",function()
 	end
 end)
 
-RegisterNetEvent('spawnarveiculo')
-AddEventHandler('spawnarveiculo',function(name)
+RegisterNetEvent('spawnarveiculo14657')
+AddEventHandler('spawnarveiculo14657',function(name)
 	local mhash = GetHashKey(name)
 	while not HasModelLoaded(mhash) do
 		RequestModel(mhash)
