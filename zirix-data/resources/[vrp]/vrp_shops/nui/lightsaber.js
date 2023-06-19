@@ -212,7 +212,7 @@ const updateShop = () => {
 					<div id="${data.shopName}">
 						<div class="shop-item" data-item-key="${item.itemBody}">
 							<div id="item-icon"><img src='${data.imageService}/${item.itemIndex}.png'></div>
-							<div id="item-weight">$${item.itemPrice}</div>
+							<div id="item-weight">R$ ${item.itemPrice}</div>
 							<div id="item-amount">${formatarNumero(item.itemAmount)}x</div>
 							<div id="item-name">${item.itemName}</div>
 						</div>
@@ -227,7 +227,7 @@ const updateShop = () => {
 			`)
 		}
 		$('#inventory-bottom').html(`
-			<input id="amount" class="qtd" maxlength="9" spellcheck="false" value="" placeholder="QUANTIDADE">
+			<input id="amount" class="qtd" maxlength="9" spellcheck="false" value="1" placeholder="QUANTIDADE">
 			<div class="inventory-amount-bar"><span id="amount-bar" style="width: ${(data.weight*100/data.maxweight).toFixed(2)}%;"></span></div>
 			<div class="inventory-amount-text"><b>${(data.weight).toFixed(2)}</b>Kg de <b>${(data.maxweight).toFixed(2)}</b>Kg</div>
 		`);
