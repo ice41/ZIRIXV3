@@ -9,6 +9,7 @@ client_scripts {
 	'pedsprofissoes.lua',
 	'radio.lua',
 	'removehud.lua',
+	'showroom.lua',
 	'richpresence.lua'
 }
 
