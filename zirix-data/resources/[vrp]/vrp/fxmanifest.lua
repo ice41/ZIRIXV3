@@ -25,6 +25,7 @@ server_scripts {
 	'modules/map.lua',
 	'modules/money.lua',
 	'modules/pass.lua',
+	'modules/plano.lua',
 	'modules/player_state.lua',
 	'modules/survival.lua'
 }
