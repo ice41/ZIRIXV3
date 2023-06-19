@@ -3,6 +3,9 @@ vehs = {}
 vehs.vehglobal = {
 	-- Boats
 	["dinghy"] = { ['name'] = "Dinghy", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1033245328, ['banned'] = true },
+	["dinghy2"] = { ['name'] = "Dinghy2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 276773164, ['banned'] = true },
+	["dinghy3"] = { ['name'] = "Dinghy3", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 509498602, ['banned'] = true },
+	["dinghy4"] = { ['name'] = "Dinghy4", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 867467158, ['banned'] = true },
 	["jetmax"] = { ['name'] = "Jetmax", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 861409633, ['banned'] = true },
 	["marquis"] = { ['name'] = "Marquis", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1043459709, ['banned'] = true },
 	["seashark3"] = { ['name'] = "Seashark3", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -311022263, ['banned'] = true },
@@ -16,7 +19,7 @@ vehs.vehglobal = {
 	["tropic2"] = { ['name'] = "Tropic2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1448677353, ['banned'] = true },
 
 	-- Commercials
-	["mule4"] = { ['name'] = "Burrito4", ['price'] = 260000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1945374990, ['banned'] = false },
+	["mule4"] = { ['name'] = "Mule", ['price'] = 260000, ['tipo'] = "carros", ['mala'] = 500, ['slots'] = 10, ['hash'] = 1945374990, ['banned'] = false },
 	["packer"] = { ['name'] = "Packer", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 569305213, ['banned'] = true },
 	["phantom"] = { ['name'] = "Phantom", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2137348917, ['banned'] = true },
 	["pounder"] = { ['name'] = "Pounder", ['price'] = 1000000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 2112052861, ['banned'] = false },
@@ -55,25 +58,25 @@ vehs.vehglobal = {
 	["tribike"] = { ['name'] = "Tribike", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1127861609, ['banned'] = true },
 	["tribike2"] = { ['name'] = "Tribike2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1233807380, ['banned'] = true },
 	["tribike3"] = { ['name'] = "Tribike3", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -400295096, ['banned'] = true },
-	
+
 	-- Emergency
-	["ambulance"] = { ['name'] = "Ambulância", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1171614426, ['banned'] = true },
-	["pbus"] = { ['name'] = "Echo", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2007026063, ['banned'] = true },
+	-- ["ambulance"] = { ['name'] = "Ambulância", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1171614426, ['banned'] = true },
+	-- ["pbus"] = { ['name'] = "Echo", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2007026063, ['banned'] = true },
 
 	-- Helicopters
 	["buzzard2"] = { ['name'] = "Buzzard2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 745926877, ['banned'] = true },
 	["cargobob2"] = { ['name'] = "Cargo Bob", ['price'] = 1000000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1621617168, ['banned'] = true },
-	["frogger"] = { ['name'] = "Frogger", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 744705981, ['banned'] = true },
+	["frogger"] = { ['name'] = "Heli PMESP", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 744705981, ['banned'] = true },
 	["maverick"] = { ['name'] = "Maverick", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1660661558, ['banned'] = true },
 	["supervolito"] = { ['name'] = "Supervolito", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 710198397, ['banned'] = true },
 	["supervolito2"] = { ['name'] = "Supervolito2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1671539132, ['banned'] = true },
 	["volatus"] = { ['name'] = "Volatus", ['price'] = 1000000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1845487887, ['banned'] = true },
 
 	-- Industrial
-	["flatbed"] = { ['name'] = "Reboque", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1353720154, ['banned'] = true },
+	["flatbed"] = { ['name'] = "Reboque", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 10, ['hash'] = 1353720154, ['banned'] = true },
 	["guardian"] = { ['name'] = "Guardian", ['price'] = 540000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -2107990196, ['banned'] = false },
-	["rubble"] = { ['name'] = "Caminhão", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1705304628, ['banned'] = true },
-	["tiptruck"] = { ['name'] = "Tiptruck", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 48339065, ['banned'] = false },
+	["rubble"] = { ['name'] = "Caminhão", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 10, ['hash'] = -1705304628, ['banned'] = true },
+	["tiptruck"] = { ['name'] = "Tiptruck", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 10, ['hash'] = 48339065, ['banned'] = false },
 
 	-- Military
 
@@ -88,7 +91,7 @@ vehs.vehglobal = {
 	["chimera"] = { ['name'] = "Chimera", ['price'] = 345000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = 6774487, ['banned'] = false },
 	["cliffhanger"] = { ['name'] = "Cliffhanger", ['price'] = 310000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = 390201602, ['banned'] = false },
 	["daemon"] = { ['name'] = "Daemon", ['price'] = 200000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 2006142190, ['banned'] = false },
-	["daemon2"]  = { ['name'] = "Daemon2", ['price'] = 240000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1404136503, ['banned'] = false },
+	["daemon2"] = { ['name'] = "Daemon2", ['price'] = 240000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1404136503, ['banned'] = false },
 	["defiler"] = { ['name'] = "Defiler", ['price'] = 460000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = 822018448, ['banned'] = false },
 	["diablous"] = { ['name'] = "Diablous", ['price'] = 430000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = -239841468, ['banned'] = false },
 	["diablous2"] = { ['name'] = "Diablous2", ['price'] = 460000, ['tipo'] = "motos", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1790834270, ['banned'] = false },
@@ -168,12 +171,12 @@ vehs.vehglobal = {
 	["vamos"] = { ['name'] = "Vamos", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -49115651, ['banned'] = false },
 	["vigero"] = { ['name'] = "Vigero", ['price'] = 170000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -825837129, ['banned'] = false },
 	["virgo"] = { ['name'] = "Virgo", ['price'] = 150000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -498054846, ['banned'] = false },
-	["virgo2"] = { ['name'] = "Virgo2", ['price'] = 250000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -899509638, ['banned'] = fals },
+	["virgo2"] = { ['name'] = "Virgo2", ['price'] = 250000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -899509638, ['banned'] = false },
 	["virgo3"] = { ['name'] = "Virgo3", ['price'] = 180000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 16646064, ['banned'] = false },
 	["voodoo"] = { ['name'] = "Voodoo", ['price'] = 220000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 2006667053, ['banned'] = false },
 	["voodoo2"] = { ['name'] = "Voodoo2", ['price'] = 220000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 523724515, ['banned'] = false },
 	["yosemite"] = { ['name'] = "Yosemite", ['price'] = 350000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1871995513, ['banned'] = false },
-	
+
 	-- Off-Road
 	["bfinjection"] = { ['name'] = "Bfinjection", ['price'] = 80000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1126868326, ['banned'] = false },
 	["bifta"] = { ['name'] = "Bifta", ['price'] = 190000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -349601129, ['banned'] = false },
@@ -202,7 +205,7 @@ vehs.vehglobal = {
 	["mammatus"] = { ['name'] = "Mammatus", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1746576111, ['banned'] = true },
 	["vestra"] = { ['name'] = "Vestra", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1341619767, ['banned'] = true },
 	["velum2"] = { ['name'] = "Velum2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1077420264, ['banned'] = true },
-	
+
 	-- SUVs
 	["baller"] = { ['name'] = "Baller", ['price'] = 160000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -808831384, ['banned'] = false },
 	["baller2"] = { ['name'] = "Baller2", ['price'] = 170000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 142944341, ['banned'] = false },
@@ -232,7 +235,7 @@ vehs.vehglobal = {
 	["toros"] = { ['name'] = "Toros", ['price'] = 520000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1168952148, ['banned'] = false },
 	["xls"] = { ['name'] = "Xls", ['price'] = 150000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1203490606, ['banned'] = false },
 	["xls2"] = { ['name'] = "Xls2", ['price'] = 350000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -432008408, ['banned'] = false },
-	
+
 	-- Sedans
 	["asea"] = { ['name'] = "Asea", ['price'] = 42000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1809822327, ['banned'] = false },
 	["asterope"] = { ['name'] = "Asterope", ['price'] = 59000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1903012613, ['banned'] = false },	
@@ -260,20 +263,13 @@ vehs.vehglobal = {
 	["washington"] = { ['name'] = "Washington", ['price'] = 130000, ['rentalPrice'] = 2000, ['tipo'] = "rental", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1777363799, ['banned'] = false },
 
 	-- Service
-	["bus"] = { ['name'] = "Ônibus", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -713569950, ['banned'] = true },
-	["coach"] = { ['name'] = "Coach", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2072933068, ['banned'] = true },
+	-- ["bus"] = { ['name'] = "Ônibus", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -713569950, ['banned'] = true },
+	-- ["coach"] = { ['name'] = "Coach", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2072933068, ['banned'] = true },
+	["mi4"] = { ['name'] = "Caio MI4", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1136652372, ['banned'] = true },
 	["rallytruck"] = { ['name'] = "Burrito4", ['price'] = 260000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -2103821244, ['banned'] = false },
 	["taxi"] = { ['name'] = "Taxi", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -956048545, ['banned'] = true },
 	["trash2"] = { ['name'] = "Caminhão", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1255698084, ['banned'] = false },
-	["policiaheli"] = { ['name'] = "Helicoptero", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -875050963, ['banned'] = false },
-	["policiacharger2018"] = { ['name'] = "Charger 2018", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1743739647, ['banned'] = false },
-	["policiasilverado"] = { ['name'] = "Silverado", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1884511084, ['banned'] = false },
-	["policiatahoe"] = { ['name'] = "Tahoe", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1865641415, ['banned'] = false },
-	["policiataurus"] = { ['name'] = "Taurus", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 112218935, ['banned'] = false },
-	["policiabmwr1200"] = { ['name'] = "BMWR 1200", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1624991916, ['banned'] = false },
-	["policiabearcat"] = { ['name'] = "Bearcat", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1748002214, ['banned'] = false },
-
-
+	
 	-- Sports
 	["alpha"] = { ['name'] = "Alpha", ['price'] = 230000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 767087018, ['banned'] = false },
 	["banshee"] = { ['name'] = "Banshee", ['price'] = 300000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1041692462, ['banned'] = false },
@@ -286,7 +282,9 @@ vehs.vehglobal = {
 	["carbonizzare"] = { ['name'] = "Carbonizzare", ['price'] = 290000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 2072687711, ['banned'] = false },
 	["comet2"] = { ['name'] = "Comet2", ['price'] = 250000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1045541610, ['banned'] = false },
 	["comet3"] = { ['name'] = "Comet3", ['price'] = 290000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -2022483795, ['banned'] = false },
+	["comet4"] = { ['name'] = "Comet4", ['price'] = 290000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 15619205205, ['banned'] = false },
 	["comet5"] = { ['name'] = "Comet5", ['price'] = 300000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 661493923, ['banned'] = false },
+
 	["coquette"] = { ['name'] = "Coquette", ['price'] = 250000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 108773431, ['banned'] = false },
 	["deveste"] = { ['name'] = "Deveste", ['price'] = 920000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1591739866, ['banned'] = false },
 	["elegy"] = { ['name'] = "Elegy", ['price'] = 350000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 196747873, ['banned'] = false },
@@ -328,6 +326,8 @@ vehs.vehglobal = {
 	["specter2"] = { ['name'] = "Specter2", ['price'] = 355000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1074745671, ['banned'] = false },
 	["streiter"] = { ['name'] = "Streiter", ['price'] = 250000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1741861769, ['banned'] = false },
 	["sultan"] = { ['name'] = "Sultan", ['price'] = 210000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 970598228, ['banned'] = false },
+	["sultan2"] = { ['name'] = "Sultan2", ['price'] = 210000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 872704284, ['banned'] = false },
+	["sultanrs"] = { ['name'] = "Sultan RS", ['price'] = 210000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -295689028, ['banned'] = false },
 	["surano"] = { ['name'] = "Surano", ['price'] = 310000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 384071873, ['banned'] = false },
 	["tampa2"] = { ['name'] = "Tampa2", ['price'] = 200000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1071380347, ['banned'] = false },
 	["tropos"] = { ['name'] = "Tropos", ['price'] = 170000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1887331236, ['banned'] = false },
@@ -365,7 +365,7 @@ vehs.vehglobal = {
 	["z190"] = { ['name'] = "Z190", ['price'] = 350000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 838982985, ['banned'] = false },
 	["ztype"] = { ['name'] = "Ztype", ['price'] = 400000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 758895617, ['banned'] = false },
 	["cheburek"] = { ['name'] = "Cheburek", ['price'] = 170000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -988501280, ['banned'] = false },
-	
+
 	-- Super
 	["adder"] = { ['name'] = "Adder", ['price'] = 620000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1216765807, ['banned'] = false },
 	["autarch"] = { ['name'] = "Autarch", ['price'] = 760000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -313185164, ['banned'] = false },
@@ -390,7 +390,6 @@ vehs.vehglobal = {
 	["reaper"] = { ['name'] = "Reaper", ['price'] = 620000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 234062309, ['banned'] = false },
 	["sc1"] = { ['name'] = "Sc1", ['price'] = 495000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1352136073, ['banned'] = false },
 	["sheava"] = { ['name'] = "Sheava", ['price'] = 700000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 819197656, ['banned'] = false },
-	["sultanrs"] = { ['name'] = "Sultan RS", ['price'] = 450000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -295689028, ['banned'] = false },
 	["t20"] = { ['name'] = "T20", ['price'] = 670000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1663218586, ['banned'] = false },
 	["taipan"] = { ['name'] = "Taipan", ['price'] = 620000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1134706562, ['banned'] = false },
 	["tempesta"] = { ['name'] = "Tempesta", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 272929391, ['banned'] = false },
@@ -404,23 +403,23 @@ vehs.vehglobal = {
 	["voltic"] = { ['name'] = "Voltic", ['price'] = 440000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1622444098, ['banned'] = false },
 	["xa21"] = { ['name'] = "Xa21", ['price'] = 630000, ['tipo'] = "carros", ['mala'] = 500, ['slots'] = 25, ['hash'] = 917809321, ['banned'] = false },
 	["zentorno"] = { ['name'] = "Zentorno", ['price'] = 920000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1403128555, ['banned'] = false },
-	["urus"] = { ['name'] = "Urus", ['price'] = 920000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -520214134, ['banned'] = false },
-	["divo"] = { ['name'] = "Divo", ['price'] = 920000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1503141430, ['banned'] = false },
-	["bmwm8"] = { ['name'] = "BMWM8", ['price'] = 920000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1404319008, ['banned'] = false },
+
 	-- Trailer
 	["tanker2"] = { ['name'] = "Gas", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1956216962, ['banned'] = true },
 	["armytanker"] = { ['name'] = "Diesel", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1207431159, ['banned'] = true },
 	["tvtrailer"] = { ['name'] = "Show", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1770643266, ['banned'] = true },
 	["trailerlogs"] = { ['name'] = "Woods", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 2016027501, ['banned'] = true },
 	["tr4"] = { ['name'] = "Cars", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 2091594960, ['banned'] = true },
-	
-	-- Trains
 
 	-- Utility
 	["sadler"] = { ['name'] = "Sadler", ['price'] = 180000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -599568815, ['banned'] = false },
 	["towtruck"] = { ['name'] = "Towtruck", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1323100960, ['banned'] = true },
 	["towtruck2"] = { ['name'] = "Towtruck2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -442313018, ['banned'] = true },
 	["tractor2"] = { ['name'] = "Tractor2", ['price'] = 1000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -2076478498, ['banned'] = false },
+	["raketrailer"] = { ['name'] = "Arado", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = 390902130, ['banned'] = false },
+	["energyr1200"] = { ['name'] = "Moto MEC", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1528679511, ['banned'] = false },
+	["energyraptor"] = { ['name'] = "Ford Raptor MEC", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -336199507, ['banned'] = false },
+	["energyrepair"] = { ['name'] = "Reboque MEC", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1153565105, ['banned'] = false },
 
 	-- Vans
 	["bison"] = { ['name'] = "Bison", ['price'] = 220000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -16948145, ['banned'] = false },
@@ -444,5 +443,212 @@ vehs.vehglobal = {
 	["speedo"] = { ['name'] = "Speedo", ['price'] = 200000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -810318068, ['banned'] = false },
 	["surfer"] = { ['name'] = "Surfer", ['price'] = 55000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 699456151, ['banned'] = false },
 	["youga"] = { ['name'] = "Youga", ['price'] = 260000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 65402552, ['banned'] = false },
-	["youga2"] = { ['name'] = "Youga XL", ['price'] = 1000000, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1026149675, ['banned'] = false }
+	["youga2"] = { ['name'] = "Youga XL", ['price'] = 1000000, ['tipo'] = "carros", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1026149675, ['banned'] = false },
+	["youga3"] = { ['name'] = "Youga XL", ['price'] = 1000000, ['tipo'] = "carros", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1802742206, ['banned'] = false },
+	
+
+	-- [ Policia ] -------------------------------------------------------------------------------------------
+
+	-- VTRS
+	["amarokpolicia"] = { ['name'] = "Amarok BAEP", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -137337379, ['banned'] = false },
+	["corollapm"] = { ['name'] = "Corolla", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1931820059, ['banned'] = false },
+	["pmerjduster"] = { ['name'] = "Duster", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1903281928, ['banned'] = false },
+	["pmerjtrail"] = { ['name'] = "Trail", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -612527475, ['banned'] = false },
+	["wrcivic"] = { ['name'] = "Civic", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 624204643, ['banned'] = false },
+	["corolla20pf1"] = { ['name'] = "Corolla", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1605098600, ['banned'] = false },
+	["energyr1250"] = { ['name'] = "Batedor", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1042015910, ['banned'] = false },
+	["pajero15pf1"] = { ['name'] = "Pajero", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -330275033, ['banned'] = false },
+	["2015polstang"] = { ['name'] = "Mustang", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1341474454, ['banned'] = false },
+	["caveiraobope"] = { ['name'] = "Blindado COT", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1611740349, ['banned'] = false },
+	["prfcamaro19"] = { ['name'] = "Camaro", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 123678781, ['banned'] = false },
+	["l200prf"] = { ['name'] = "L200 PRF", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1030779560, ['banned'] = false },
+	["trail21federalg2"] = { ['name'] = "Trail", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 662774380, ['banned'] = false },
+	["prf_charger"] = { ['name'] = "Dodge Charger", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1583781843, ['banned'] = false },
+	["energyrangereb"] = { ['name'] = "PRF GRR", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -984255685, ['banned'] = false },
+	["rangerpcerjc"] = { ['name'] = "Ranger Barca", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1301644407, ['banned'] = false },
+	["basepm"] = { ['name'] = "Base Comunitaria", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1023874553, ['banned'] = false },
+	["corollarod"] = { ['name'] = "Corolla TOR", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -390364559, ['banned'] = false },
+	["spinaegis"] = { ['name'] = "Spin", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1379452692, ['banned'] = false },
+	["sw4pm"] = { ['name'] = "SW4", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1332153149, ['banned'] = false },
+	["s10iml"] = { ['name'] = "Rabecão IML", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1757534671, ['banned'] = false },
+	["s10sap"] = { ['name'] = "SAP", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 77333085, ['banned'] = false },
+	["ACTTOsv6UM"] = { ['name'] = "PCSP P2", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1256120629, ['banned'] = false },
+	
+	-- Moto
+	-- ["cb500pmejr"] = { ['name'] = "CB500", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -617344509, ['banned'] = false },
+	["pmerjxt"] = { ['name'] = "JXT", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 961093379, ['banned'] = false },
+	-- ["xrepmerjw"] = { ['name'] = "XRE PMDF", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -2129953526, ['banned'] = false },
+	["14bike"] = { ['name'] = "Harley TOR", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 189977529, ['banned'] = false },
+	-- Helis
+	["as350civil"] = { ['name'] = "Águia PCSP", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1450667722, ['banned'] = false },
+	["energyas350"] = { ['name'] = "Águia PF", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 582242693, ['banned'] = false },
+	["as350pmesp"] = { ['name'] = "Águia PMESP", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1025269741, ['banned'] = false },
+	["as350prf"] = { ['name'] = "Águia PRF", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 739775687, ['banned'] = false },
+
+	-- [ Hospital SAMU ] -----------------------------------------------------------------------------------------------------------------------------------
+
+	-- VTRS
+	["samurev"] = { ['name'] = "Ambulância SAMU", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1582590121, ['banned'] = false },
+	["trail21samu1"] = { ['name'] = "V.I.M SAMU", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1819314035, ['banned'] = false },
+	-- Moto 
+	["xtsamu"] = { ['name'] = "GMAU SAMU", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -660564878, ['banned'] = false },
+	-- Heli
+	["as350samu"] = { ['name'] = "Águia SAMU", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = -1160822613, ['banned'] = false },
+	["samumav"] = { ['name'] = "Exclusivo SAMU", ['price'] = 0, ['tipo'] = "work", ['mala'] = 0, ['slots'] = 10, ['hash'] = 1084099044, ['banned'] = false },
+
+	-- [ PRESIDENCIA ] -------------------------------------------------------------------------------------------------------------------------------------
+
+	["mercedes"] = { ['name'] = "Mercedes Descaracterizada", ['price'] = 0, ['tipo'] = "work", ['mala'] = 200, ['slots'] = 50, ['hash'] = 1110403951, ['banned'] = false },
+	["wrgtr"] = { ['name'] = "Mercedes WRGTR", ['price'] = 0, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -50123501, ['banned'] = false },
+
+	-- [ VIP Importados ] ----------------------------------------------------------------------------------------------------------------------------------------------
+
+	["audirs6"] = { ['name'] = "Audi RS6", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1676738519, ['banned'] = false },
+	["bmwm3f80"] = { ['name'] = "BMW M3 F80", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -157095615, ['banned'] = false },
+	["bmwm4gts"] = { ['name'] = "BMW M4 GTS", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -13524981, ['banned'] = false },
+	["bmwm8"] = { ['name'] = "BMW M8 Competition", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1404319008, ['banned'] = false },
+	["dodgechargersrt"] = { ['name'] = "Dodge Charger SRT", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1601422646, ['banned'] = false },
+	["ferrariitalia"] = { ['name'] = "Ferrari 458 Italia", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1173768715, ['banned'] = false },
+	["fordmustang"] = { ['name'] = "Ford Mustang", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1573350092, ['banned'] = false },
+	["lamborghinihuracan"] = { ['name'] = "Lamborghini Huracan", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1114244595, ['banned'] = false },
+	["lancerevolutionx"] = { ['name'] = "Mitsu Lancer Evo X", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1978088379, ['banned'] = false },
+	["nissan370z"] = { ['name'] = "Nissan 370z", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = -2015218779, ['banned'] = false },
+	["nissangtr"] = { ['name'] = "Nissan GT-R", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = -60313827, ['banned'] = false },
+	["nissanskyliner34"] = { ['name'] = "Nissan Skyline R34", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -4816535, ['banned'] = false },
+	["panamera17turbo"] = { ['name'] = "Porsche Panamera Turbo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 194366558, ['banned'] = false },
+	["pm19"] = { ['name'] = "Porsche Macan Turbo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = -1560751994, ['banned'] = false },
+	["teslaprior"] = { ['name'] = "Tesla Model S Prior", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = 351980252, ['banned'] = false },
+	["toyotasupra"] = { ['name'] = "Toyota Supra", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = 723779872, ['banned'] = false },
+	["urus"] = { ['name'] = "Lamborghini Urus", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = -520214134, ['banned'] = false },
+	["divo"] = { ['name'] = "Bugatti Divo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 100, ['hash'] = 1503141430, ['banned'] = false },
+	["70camarofn"] = { ['name'] = "Chevrolet Camaro 1970", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 2113322010, ['banned'] = false },
+	["bme6tun"] = { ['name'] = "BMW Série 6 Gran Coupé", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -380714779, ['banned'] = false },
+	["g65amg"] = { ['name'] = "Mercedes AMG G65", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 104532066, ['banned'] = false },
+	["bbentayga"] = { ['name'] = "Bentley Bentayga", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1402024844, ['banned'] = false },
+	["rmodamgc63"] = { ['name'] = "Mercedes AMG C63s", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -863499820, ['banned'] = false },
+	["veneno"] = { ['name'] = "Lamborghini Veneno", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -42051018, ['banned'] = false },
+	["fc15"] = { ['name'] = "Ferrari California", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 580861919, ['banned'] = false },
+	["71gtx"] = { ['name'] = "Plymounth GTX 1971", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1863430482, ['banned'] = false },
+	["nissantitan17"] = { ['name'] = "Nissan Titan 2017", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1221510024, ['banned'] = false },
+	["porsche992"] = { ['name'] = "Porsche 911 Carrera S", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 859592619, ['banned'] = false },
+	["19ftype"] = { ['name'] = "Jaguar F-Type 2019", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1224601968, ['banned'] = false },
+	["agerars"] = { ['name'] = "Koenigsegg Agera RS", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -654239719, ['banned'] = false },
+	["msohs"] = { ['name'] = "McLaren MSO HS", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -653358508, ['banned'] = false },
+	["eclipse"] = { ['name'] = "Mitsubishi Eclipse", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1603211447, ['banned'] = false },
+	["gt17"] = { ['name'] = "Ford GT 17", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -2011325074, ['banned'] = false },
+	["p1"] = { ['name'] = "McLaren P1", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -189438188, ['banned'] = false },
+	["488gtb"] = { ['name'] = "Ferrari 488 GTB", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1593808613, ['banned'] = false },
+	["911r"] = { ['name'] = "Porsche 911 R", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 144259586, ['banned'] = false },
+	["i8"] = { ['name'] = "BMW I8 eDrive", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1718441594, ['banned'] = false },
+	["fxxkevo"] = { ['name'] = "Ferrari FXX-K Evo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 235772231, ['banned'] = false },
+	["lp700r"] = { ['name'] = "Lamborghini LP700R", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 949614817, ['banned'] = false },
+	["filthynsx"] = { ['name'] = "Acura Filthy NSX", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -20969112321, ['banned'] = false },
+	["db11"] = { ['name'] = "Aston Martin DB11", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 765170133, ['banned'] = false },
+	["180sx"] = { ['name'] = "Nissan 180SX", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1467569396, ['banned'] = false },
+	["amarok"] = { ['name'] = "Volkswagen Amarok V6 TDI", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 493030188, ['banned'] = false },
+	["vantage"] = { ['name'] = "Aston Martin Vantage", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1067176722, ['banned'] = false },
+	["2018zl1"] = { ['name'] = "Chevrolet Camaro ZL1 2018", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1671973728, ['banned'] = false },
+	["celta"] = { ['name'] = "Chevrolet Celta VHCE", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1995020435, ['banned'] = false },
+	["defiant"] = { ['name'] = "Javelin AMX Defiant 1972", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 233681897, ['banned'] = false },
+	["eleanor"] = { ['name'] = "Ford Mustang GT500 Eleanor", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 137494285, ['banned'] = false },
+	["aperta"] = { ['name'] = "Ferrari LaFerrari Aperta", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1481236684, ['banned'] = false },
+	["lamtmc"] = { ['name'] = "Lamborghini Terzo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -264618235, ['banned'] = false },
+	["s15"] = { ['name'] = "Nissan S15", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1966489524, ['banned'] = false },
+	["bc"] = { ['name'] = "Huayra BC", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -402398867, ['banned'] = false },
+	["18macan"] = { ['name'] = "Porsche Macan Turbo", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -187294055, ['banned'] = false },
+	["palameila"] = { ['name'] = "Porsche Panamera 4S", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1315334327, ['banned'] = false },
+	["senna"] = { ['name'] = "McLaren Senna", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -433961724, ['banned'] = false },
+	["slsamg"] = { ['name'] = "Mercedes AMG SLS", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 2093958905, ['banned'] = false },
+
+	-- [ VIP BR ] ----------------------------------------------------------------------------------------------------------------------------------------------
+
+	["bora"] = { ['name'] = "Volkswagen Bora", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1225510181, ['banned'] = false },
+	["celtach"] = { ['name'] = "Celta VHCE c/ SOM", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1398152935, ['banned'] = false },
+	["f250"] = { ['name'] = "Ford F-250", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -307824553, ['banned'] = false },
+	["f250deboxe"] = { ['name'] = "Ford F-250 Deboxe", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1686080635, ['banned'] = false },
+	["fox"] = { ['name'] = "Volkswagen Fox 2022", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -15555105668, ['banned'] = false },
+	["ftoro"] = { ['name'] = "Fiat Toro", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -252643265, ['banned'] = false },
+	["fiattoro"] = { ['name'] = "Fiat Toro Freedom", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -182003596, ['banned'] = false },
+	["fusionreba"] = { ['name'] = "Ford Fusion", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1603928703, ['banned'] = false },
+	["kadett"] = { ['name'] = "Chevrolet Kadett", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1078573354, ['banned'] = false },
+	["vwsava"] = { ['name'] = "Volkswagen Saveiro Cross", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 131498600, ['banned'] = false },
+	["savag6"] = { ['name'] = "Volkswagen Saveiro", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1611990081, ['banned'] = false },
+	["caminhao1"] = { ['name'] = "Caminhão de Som", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1843273302, ['banned'] = false },
+	["evoque"] = { ['name'] = "Range Rover Evoque", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1663453404, ['banned'] = false },
+	["fusca"] = { ['name'] = "Volkswagen Fusca", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1924372706, ['banned'] = false },
+	["vwgolgti"] = { ['name'] = "Volkswagen Gol GTI", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -237868041, ['banned'] = false },
+	["paratigls"] = { ['name'] = "Volkswagen Parati GLS", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -934181946, ['banned'] = false },
+	["santa"] = { ['name'] = "Hyundai Santa Fé", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1734169614, ['banned'] = false },
+	["paredao"] = { ['name'] = "Paredão Pequeno", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 0, ['slots'] = 0, ['hash'] = 167397304, ['banned'] = false },
+	["paredao2"] = { ['name'] = "Paredão Grande", ['price'] = 600000, ['tipo'] = "carros", ['mala'] = 0, ['slots'] = 0, ['hash'] = -651546291, ['banned'] = false },
+
+	-- DLC The Cayo Perico Heist ---------------------
+	["brioso2"] = { ['name'] = "Brioso2", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1429622905, ['banned'] = false },
+	["italirsx"] = { ['name'] = "Grotti Itali RSX", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1149725334, ['banned'] = false },
+	["manchez2"] = { ['name'] = "Manchez2", ['price'] = 320000, ['tipo'] = "motos", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1086534307, ['banned'] = false },
+	["squaddie"] = { ['name'] = "Mammoth Squaddie", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -102335483, ['banned'] = false },
+	["toreador"] = { ['name'] = "Pegassi Toreador", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1455990255, ['banned'] = false },
+	["verus"] = { ['name'] = "Dinka Verus", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 298565713, ['banned'] = false },
+	["vetir"] = { ['name'] = "Vetir", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 2014313426, ['banned'] = false },
+	["veto"] = { ['name'] = "Veto", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -857356038, ['banned'] = false },
+	["veto2"] = { ['name'] = "Veto2", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1492917079, ['banned'] = false },
+	["weevil"] = { ['name'] = "BF Weevil", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1644055914, ['banned'] = false },
+	["winky"] = { ['name'] = "Vapid Winky", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -210308634, ['banned'] = false },
+	["slamtruck"] = { ['name'] = "Vapid Slamtruck", ['price'] = 320000, ['tipo'] = "work", ['mala'] = 100, ['slots'] = 50, ['hash'] = 780047980, ['banned'] = false },
+	-- Banneds
+	["alkonost"] = { ['name'] = "RO-86 Alkonost", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -365873403, ['banned'] = true },
+	["annihilator"] = { ['name'] = "Annihilator Stealth", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 837858166, ['banned'] = true },
+	["annihilator2"] = { ['name'] = "Annihilator Stealth2", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 295054921, ['banned'] = true },
+	["avisa"] = { ['name'] = "Kraken Avisa", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1706603682, ['banned'] = true },
+	["dinghy5"] = { ['name'] = "Nagasaki Weaponized Dinghy", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -980573366, ['banned'] = true },
+	["kosatka"] = { ['name'] = "Kosatka", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1336872304, ['banned'] = true },
+	["longfin"] = { ['name'] = "Shitzu Longfin", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1861786828, ['banned'] = true },
+	["patrolboat"] = { ['name'] = "Kurtz 31 Patrol Boat", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -276744698, ['banned'] = true },
+	["seasparrow2"] = { ['name'] = "Sparrow2", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1229411063, ['banned'] = true },
+	["seasparrow3"] = { ['name'] = "Sparrow3", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1593933419, ['banned'] = true },
+
+
+	-- DLC Los Santos Tuners ---------------------
+	["calico"] = { ['name'] = "Karin Calico GTF", ['price'] = 290000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1193912403, ['banned'] = false },
+	["comet6"] = { ['name'] = "Comet6", ['price'] = 300000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -1726022652, ['banned'] = false },
+	["cypher"] = { ['name'] = "Cypher", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1755697647, ['banned'] = false },
+	["dominator7"] = { ['name'] = "Vapid Dominator ASP", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 426742808, ['banned'] = false },
+	["dominator8"] = { ['name'] = "Vapid Dominator GTT", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 736672010, ['banned'] = false },
+	["euros"] = { ['name'] = "Annis Euros", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1705128934, ['banned'] = false },
+	["futo2"] = { ['name'] = "Karin Futo GTX", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1507230520, ['banned'] = false },
+	["growler"] = { ['name'] = "Pfister Growler", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1304459735, ['banned'] = false },
+	["jester4"] = { ['name'] = "Dinka Jester RR", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1582061455, ['banned'] = false },
+	["previon"] = { ['name'] = "Karin Previon", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1416471345, ['banned'] = false },
+	["remus"] = { ['name'] = "Annis Remus", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1377217886, ['banned'] = false },
+	["rt3000"] = { ['name'] = "Dinka RT3000", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -452604007, ['banned'] = false },
+	["sultan3"] = { ['name'] = "Sultan3", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -291021213, ['banned'] = false },
+	["tailgater2"] = { ['name'] = "Obey Tailgater S", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1244461404, ['banned'] = false },
+	["vectre"] = { ['name'] = "Emperor Vectre", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1540373595, ['banned'] = false },
+	["warrener2"] = { ['name'] = "Vulcar Warrener HKR", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 579912970, ['banned'] = false },
+	["zr350"] = { ['name'] = "Annis ZR350", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1858654120, ['banned'] = false },
+	-- Banneds
+	["freightcar2"] = { ['name'] = "Freight Train", ['price'] = 0, ['tipo'] = "work", ['mala'] = 10, ['slots'] = 10, ['hash'] = -1108591207, ['banned'] = true },
+
+	-- DLC The Contract ---------------------
+	["astron"] = { ['name'] = "Pfister Astron", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 629969764, ['banned'] = false },
+	["baller7"] = { ['name'] = "Gallivanter Baller ST", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 359875117, ['banned'] = false },
+	["buffalo4"] = { ['name'] = "Bravado Buffalo STX", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -619930876, ['banned'] = false },
+	["champion"] = { ['name'] = "Dewbauchee Champion", ['price'] = 425000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = -915234475, ['banned'] = false },
+	["cinquemila"] = { ['name'] = "Lampadati Cinquemila", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1527436269, ['banned'] = false },
+	["comet7"] = { ['name'] = "Pfister Comet S2 Cabrio", ['price'] = 300000, ['tipo'] = "carros", ['mala'] = 50, ['slots'] = 10, ['hash'] = 1141395928, ['banned'] = false },
+	["deity"] = { ['name'] = "Enus Deity", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1532171089, ['banned'] = false },
+	["granger2"] = { ['name'] = "Declasse Granger", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -261346873, ['banned'] = false },
+	["ignus"] = { ['name'] = "Pegassi Ignus", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -1444114309, ['banned'] = false },
+	["iwagen"] = { ['name'] = "Obey I-Wagen", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 662793086, ['banned'] = false },
+	["jubilee"] = { ['name'] = "Enus Jubilee", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 461465043, ['banned'] = false },
+	["mule5"] = { ['name'] = "Maibatsu Mule", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1343932732, ['banned'] = false },
+	["patriot3"] = { ['name'] = "Mammoth Patriot Mil-Spec", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = -670086588, ['banned'] = false },
+	["reever"] = { ['name'] = "Western Reever", ['price'] = 320000, ['tipo'] = "motos", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1993851908, ['banned'] = false },
+	["shinobi"] = { ['name'] = "Nagasaki Shinobi", ['price'] = 320000, ['tipo'] = "motos", ['mala'] = 100, ['slots'] = 50, ['hash'] = 1353120668, ['banned'] = false },
+	["youga4"] = { ['name'] = "Vapid Youga Custom", ['price'] = 1000000, ['tipo'] = "carros", ['mala'] = 10, ['slots'] = 10, ['hash'] = 1486521356, ['banned'] = false },
+	["zeno"] = { ['name'] = "Overflod Zeno", ['price'] = 320000, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = 655665811, ['banned'] = false },
+
+
+	-- ["nomeVeiculo"] = { ['name'] = "DESC", ['price'] = 0, ['tipo'] = "carros", ['mala'] = 100, ['slots'] = 50, ['hash'] = HASHAQUI, ['banned'] = false },
+
 }
