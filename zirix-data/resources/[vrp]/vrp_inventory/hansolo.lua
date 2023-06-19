@@ -323,7 +323,8 @@ end)
 RegisterNetEvent("allowArmour")
 AddEventHandler("allowArmour",function()
     armour = false
-    SetPedArmour(PlayerPedId(), 0)
+    --SetPedArmour(PlayerPedId(), 0)
+    TriggerEvent("republicarand",0)
 end)
 
 RegisterNetEvent("notallowArmour")
